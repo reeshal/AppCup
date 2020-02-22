@@ -7,45 +7,56 @@
              x:Class="NoPoverty.Views.MyProfile">
 
     <ContentPage.Content>
-
-        <StackLayout HorizontalOptions="FillAndExpand"
-                 Margin="15"
-                 VerticalOptions="FillAndExpand">
-            <Image Source="icon.png"
-               WidthRequest="150"
-               HeightRequest="150"
-               Margin="0,40,0,0"
-               ></Image>
-            <Label Text="Name of User" 
-                   HorizontalTextAlignment="Center"
-                   FontSize="22" 
-                   FontAttributes="Bold"></Label>
-            <Label Text="Location"
-                   HorizontalTextAlignment="Center"
-                   FontSize="18"
-                   Margin="0,0,0,20"></Label>
-
-            <Grid>
+        <ScrollView>
+            <Grid ColumnSpacing="0" RowSpacing="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="AUTO" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="AUTO" />
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                </Grid.ColumnDefinitions>
-                <Label Text="80" Grid.Row="0" Grid.Column="0" FontSize="50" HorizontalTextAlignment="Center"/>
-                <Label Text="Products Sold" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center" FontSize="18"/>
-                <Label Text="80" Grid.Row="0" Grid.Column="1" FontSize="50" HorizontalTextAlignment="Center"/>
-                <Label Text="Products Picked" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" FontSize="18"/>
+
+                <!--  header background  -->
+                <Image Aspect="AspectFill" Source="HeaderBackground.png" />
+                <Image Aspect="Fill" Margin="0,-1,0,-1" Source="CurvedMask.png" VerticalOptions="End" />
+
+                <!--  profile image  -->
+                <Image HeightRequest="150" HorizontalOptions="Center" Source="icon.png" TranslationY="50" VerticalOptions="End" WidthRequest="150" />
+
+                <!--  Profile Name  -->
+                <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
+                    <Label Style="{StaticResource ProfileNameLabel}" Text="User name" FontSize="22" />
+                    <Label Margin="0,-5" Style="{StaticResource ProfileTagLabel}" Text="Location" />
+                </StackLayout>
+
+                <!--  Social Stats Section  -->
+                <Grid Grid.Row="2" Margin="0,30" ColumnSpacing="0" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout>
+                        <Label Style="{StaticResource StatsNumberLabel}" Text="33" />
+                        <Label Style="{StaticResource StatsCaptionLabel}" Text="Products Donated" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+                        <Label Style="{StaticResource StatsNumberLabel}" Text="94" />
+                        <Label Style="{StaticResource StatsCaptionLabel}" Text="Products picked" />
+                    </StackLayout>
+
+                </Grid>
+
+                <!--  profile description  -->
+                <Label Margin="20,0" Grid.Row="3" Style="{StaticResource MainBodyLabel}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada ultricies arcu nec egestas. Nam porta fermentum aliquam. Nullam tincidunt odio purus." />
+
+                <!--  follow button  -->
+                <Button Grid.Row="4" Margin="20" Style="{StaticResource FollowButton}" Text="Edit Profile" />
 
             </Grid>
-
-            <Button Text="Edit Profile" 
-                VerticalOptions="EndAndExpand"
-                HeightRequest="60" 
-                BackgroundColor="#5c91f2"
-                TextColor="White"
-                Font="18"/>
-
-        </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>
