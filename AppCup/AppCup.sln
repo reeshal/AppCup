@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCup.Android", "AppCup\AppCup\AppCup.Android\AppCup.Android.csproj", "{5162F955-2DBA-4EE2-897B-863A62D46D7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCup.Android", "AppCup.Android\AppCup.Android.csproj", "{5162F955-2DBA-4EE2-897B-863A62D46D7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCup.iOS", "AppCup\AppCup\AppCup.iOS\AppCup.iOS.csproj", "{5FE4C4B6-FF51-40B8-BC75-56EDC663604D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCup.iOS", "AppCup.iOS\AppCup.iOS.csproj", "{5FE4C4B6-FF51-40B8-BC75-56EDC663604D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCup", "AppCup\AppCup\AppCup\AppCup.csproj", "{0E664270-1B23-4CEF-857A-D106B70CBDE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppCup", "AppCup\AppCup.csproj", "{0E664270-1B23-4CEF-857A-D106B70CBDE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
