@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NoPoverty.Views.MyProfile">
+
+    <ContentPage.Content>
+
+        <StackLayout HorizontalOptions="FillAndExpand"
+                 Margin="15"
+                 VerticalOptions="FillAndExpand">
+            <Image Source="icon.png"
+               WidthRequest="150"
+               HeightRequest="150"
+               Margin="0,40,0,0"
+               ></Image>
+            <Label Text="Name of User" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="22" 
+                   FontAttributes="Bold"></Label>
+            <Label Text="Location"
+                   HorizontalTextAlignment="Center"
+                   FontSize="18"
+                   Margin="0,0,0,20"></Label>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="80" Grid.Row="0" Grid.Column="0" FontSize="50" HorizontalTextAlignment="Center"/>
+                <Label Text="Products Sold" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center" FontSize="18"/>
+                <Label Text="80" Grid.Row="0" Grid.Column="1" FontSize="50" HorizontalTextAlignment="Center"/>
+                <Label Text="Products Picked" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" FontSize="18"/>
+
+            </Grid>
+
+            <Button Text="Edit Profile" 
+                VerticalOptions="EndAndExpand"
+                HeightRequest="60" 
+                BackgroundColor="#5c91f2"
+                TextColor="White"
+                Font="18"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
