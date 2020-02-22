@@ -22,7 +22,8 @@ namespace NoPoverty.Views
             {
                 new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
                 new HomeMenuItem {Id = MenuItemType.MyProfile, Title="My Profile" },
-                new HomeMenuItem {Id = MenuItemType.MyProducts, Title="My Products" }
+                new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="Products Donated" },
+                new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="Products Picked" }
             }; 
 
             ListViewMenu.ItemsSource = menuItems;

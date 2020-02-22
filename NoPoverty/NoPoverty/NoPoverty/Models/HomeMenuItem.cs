@@ -8,7 +8,8 @@ namespace NoPoverty.Models
     {
         Home,
         MyProfile,
-        MyProducts,
+        MyProductsDonated,
+        MyProductsReceived,
         Browse
     }
     public class HomeMenuItem
