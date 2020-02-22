@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="NoPoverty.Views.SignupPage">
+    <ScrollView>
+    <StackLayout HorizontalOptions="FillAndExpand"
+                 Margin="15"
+                 VerticalOptions="StartAndExpand">
+            <Frame CornerRadius="100" 
+                   HeightRequest="125"
+                   WidthRequest="125"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Padding="0"
+                   IsClippedToBounds="True">    
+                <Image Source="uploadicon.png"   
+                       Margin="20,20,20,20">
+                </Image>
+            </Frame>
+            <Label Text="Upload a profile picture" HorizontalTextAlignment="Center"></Label>
+            <StackLayout Orientation="Horizontal" >
+                <Entry Placeholder="First Name" HeightRequest="80" HorizontalOptions="FillAndExpand" ></Entry>
+                <Entry Placeholder="Last Name" HeightRequest="80" HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
+        
+        <Entry Placeholder="Address" HeightRequest="80" ></Entry>
+        <Entry Placeholder="Email" HeightRequest="80" ></Entry>
+        <Entry Placeholder="Contact Number" HeightRequest="80" ></Entry>
+        <Entry Placeholder="Username" HeightRequest="80" ></Entry>
+        <Entry Placeholder="Password" HeightRequest="80" ></Entry>
+        <Entry Placeholder="Confirm Password" HeightRequest="80" Margin="0,0,0,15"></Entry>
+        <Button Text="Sign Up" 
+                HeightRequest="60" 
+                BackgroundColor="#5c91f2"
+                TextColor="White"
+                Font="18"></Button>
+            <Label Text="Already a member? Login"
+               HorizontalTextAlignment="Center"
+               FontSize="16"
+               FontAttributes="Bold"
+               TextDecorations="Underline">
+                
+            </Label>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
