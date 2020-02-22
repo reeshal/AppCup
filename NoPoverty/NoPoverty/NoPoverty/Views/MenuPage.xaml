@@ -8,15 +8,27 @@
              Title="Menu">
              
     <StackLayout VerticalOptions="FillAndExpand">
-        <Image Source="icon.png"
-               WidthRequest="150"
-               HeightRequest="150"
-               Margin="0,40,0,0"
-               ></Image>
-        <Label Text="Name of User" 
-                   HorizontalTextAlignment="Center"
-                   FontSize="22" 
-                   FontAttributes="Bold"></Label>
+        <FlexLayout 
+                Direction="Row"
+                AlignItems="Center"
+                Padding="10,10,10,10">
+            <Frame
+                    HeightRequest="{OnPlatform Android=100, iOS=100}"
+                    WidthRequest="{OnPlatform Android=100, iOS=100}"
+                    Padding="0"
+                    CornerRadius="{OnPlatform Android=50, iOS=50}"
+                    IsClippedToBounds="true">
+                <Image Source="icon.png"/>
+            </Frame>
+            <StackLayout Padding="20,0,0,0">
+                <Label Text="Username"
+                        FontAttributes="Bold"
+                        FontSize="22" />
+                <Label  Text="Email"
+                        TextColor="Gray"
+                        FontSize="16" />
+            </StackLayout>
+        </FlexLayout>
         <StackLayout>
             <ListView x:Name="ListViewMenu"
                     HasUnevenRows="True">
@@ -35,7 +47,7 @@
                 HeightRequest="60" 
                 BackgroundColor="#5c91f2"
                 TextColor="White"
-                Font="18"></Button>
+                Font="18" ></Button>
     </StackLayout>
 
 </ContentPage>
