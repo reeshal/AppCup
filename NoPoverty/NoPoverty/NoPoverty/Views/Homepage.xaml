@@ -1,15 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="NoPoverty.Views.Homepage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="HomePage"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+             xmlns:Views="clr-namespace:NoPoverty.Views"
+            mc:Ignorable="d"
+            Title = "Home Page"
+             x:Class="NoPoverty.Views.Homepage"
+             BarBackgroundColor="Transparent"
+             BarTextColor="Black"
+             
+            >
+    <TabbedPage.Children>
+        <NavigationPage Title="Books" IconImageSource="book.png" >
+            <x:Arguments>
+                <Views:BooksList/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage IconImageSource="add.png"  Title="">
+            <x:Arguments>
+                <Views:NewItem/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Stationery" IconImageSource="stationery.png">
+            <x:Arguments>
+                <Views:StationeryList/>
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>
+</TabbedPage>
