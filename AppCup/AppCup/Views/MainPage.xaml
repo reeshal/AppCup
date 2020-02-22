@@ -5,10 +5,13 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:AppCup.Views"
-            x:Class="AppCup.Views.MainPage">
+                  xmlns:xf="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
+                  xmlns:views1="clr-namespace:AppCup"
+                  x:Class="AppCup.Views.MainPage">
+    
 
     <MasterDetailPage.Master>
-        <views:MenuPage />
+        <views:left_sidebar />
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
@@ -19,9 +22,11 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <views1:Home />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
+    
+    
     
 </MasterDetailPage>

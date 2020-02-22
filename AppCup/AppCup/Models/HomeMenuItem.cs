@@ -6,8 +6,15 @@ namespace AppCup.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        Nopoverty,
+        Home,
+        My_listings,
+        Profile,
+        Favourites,
+        Account,
+        Notification,
         About
+
     }
     public class HomeMenuItem
     {

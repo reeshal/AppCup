@@ -7,6 +7,15 @@
              x:Class="AppCup.App">
 
     <Application.Resources>
+        <OnPlatform x:Key="MaterialFont"
+                    x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Material Design Icons"/>
+            <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons"/>
+
+        </OnPlatform>
+                  
+        
+        
         <ResourceDictionary>
             <!--Global Styles-->
             <Color x:Key="NavigationPrimary">#2196F3</Color>

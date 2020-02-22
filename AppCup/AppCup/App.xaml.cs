@@ -11,7 +11,7 @@ namespace AppCup
 
         public App()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
             MainPage = new MainPage();

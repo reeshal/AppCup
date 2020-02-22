@@ -10,18 +10,24 @@ namespace AppCup.Views
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class MenuPage : ContentPage
+    public partial class left_sidebar : ContentPage
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         List<HomeMenuItem> menuItems;
-        public MenuPage()
+        public left_sidebar()
         {
             InitializeComponent();
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                
+                new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
+                new HomeMenuItem {Id = MenuItemType.My_listings, Title="My listing" },
+                new HomeMenuItem {Id = MenuItemType.Profile, Title="Profile" },
+                new HomeMenuItem {Id = MenuItemType.Favourites, Title="Favourites" },
+                new HomeMenuItem {Id = MenuItemType.Account, Title="Account" },
+                new HomeMenuItem {Id = MenuItemType.Notification, Title="Notification"},
+                new HomeMenuItem {Id = MenuItemType.About, Title="About"}
             };
 
             ListViewMenu.ItemsSource = menuItems;
