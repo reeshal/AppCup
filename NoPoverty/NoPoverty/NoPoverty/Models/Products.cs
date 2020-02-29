@@ -6,7 +6,7 @@ namespace NoPoverty.Models
 {
     class Products
     {
-        public int ItemId { get; set; }
+        public Guid ItemId { get; set; }
         public String Title { get; set; }
         public String Description { get; set; }
         public String Category { get; set; }
@@ -14,9 +14,9 @@ namespace NoPoverty.Models
         public String Receiver { get; set; }
         public String PickupTime { get; set; }
 
-        public Products(int itemId, string title, string description, string category, string donator, string pickupTime)
+        public Products(string title, string description, string category, string donator, string pickupTime)
         {
-            this.ItemId = itemId;
+            
             Title = title;
             Description = description;
             Category = category;
