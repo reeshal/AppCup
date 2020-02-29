@@ -71,7 +71,16 @@ namespace NoPoverty.Views
             BooksTitle.Text= string.Empty;
             BooksDescription.Text= string.Empty;
             BooksPickup.Text= string.Empty;
-            await DisplayAlert("Success", "Books Uploaded Successfully", "OK");
+            await DisplayAlert("Success", "Book Uploaded Successfully", "OK");
+        }
+        private async void BtnAddStat(object sender, EventArgs e)
+        {
+            await firebaseHelper.AddStationery(StatTitle.Text, StatDesc.Text, BooksPickup.Text, "reeshal", "", StatQty.Text);
+            StatTitle.Text = string.Empty;
+            StatDesc.Text = string.Empty;
+            BooksPickup.Text = string.Empty;
+            StatQty.Text = string.Empty;
+            await DisplayAlert("Success", "Stationery Uploaded Successfully", "OK");
         }
 
     }

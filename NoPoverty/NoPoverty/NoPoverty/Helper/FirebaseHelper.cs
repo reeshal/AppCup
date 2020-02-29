@@ -11,7 +11,7 @@ namespace NoPoverty.Helper
     class FirebaseHelper
     {
         private readonly string Child1 = "Books";
-        //private readonly string Child2 = "Stationery";
+        private readonly string Child2 = "Stationery";
         readonly FirebaseClient firebase = new FirebaseClient("https://nopoverty-66859.firebaseio.com/");
 
         public async Task<List<Books>> GetAllBooks()
@@ -29,13 +29,37 @@ namespace NoPoverty.Helper
                     ImageUrl=item.Object.ImageUrl
                 }).ToList();
         }
+        public async Task<List<Stationery>> GetAllStationery()
+        {
+            return (await firebase
+                .Child(Child2)
+                .OnceAsync<Stationery>()).Select(item => new Stationery
+                {
+                    StationeryId = item.Object.StationeryId,
+                    Title = item.Object.Title,
+                    Description = item.Object.Description,
+                    Donator = item.Object.Donator,
+                    Receiver = item.Object.Receiver,
+                    PickupTime = item.Object.PickupTime,
+                    Quantity=item.Object.Quantity,
+                    ImageUrl = item.Object.ImageUrl
+                }).ToList();
+        }
+
         //receriver is not added . it is updated later on when a request got it
         public async Task AddBook(string Title, string Description, string PickupTime, string Donator, string ImageUrl)
         {
             await firebase
                 .Child(Child1)
-                .PostAsync(new Books() { BookId = Guid.NewGuid(), Title = Title, Description = Description, Donator="User", Receiver="", PickupTime=PickupTime, ImageUrl="" });
+                .PostAsync(new Books() { BookId = Guid.NewGuid(), Title = Title, Description = Description, Donator= Donator, Receiver="", PickupTime=PickupTime, ImageUrl="" });
         }
+        public async Task AddStationery(string Title, string Description, string PickupTime, string Donator, string ImageUrl, string Qty)
+        {
+            await firebase
+                .Child(Child2)
+                .PostAsync(new Stationery() { StationeryId = Guid.NewGuid(), Title = Title, Description = Description, Quantity=Qty, Donator = Donator, Receiver = "", PickupTime = PickupTime, ImageUrl = "" });
+        }
+
 
         public async Task<Books> GetBookById(Guid bookId)
         {
