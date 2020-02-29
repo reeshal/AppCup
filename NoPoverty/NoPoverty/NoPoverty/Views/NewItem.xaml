@@ -75,7 +75,7 @@
                         <Label Text="Pick up times" FontSize="Medium" />
                         <Entry Placeholder="E.G. Today from 4-6pm or I can leave it outside" FontSize="Small" x:Name="BooksPickup" />
 
-                        <Button Text="Submit" 
+                        <Button Text="Upload" 
                                 Style="{StaticResource FollowButton}"
                                 x:Name="AddBook"
                                 Clicked="BtnAddBook"/>
@@ -86,15 +86,21 @@
                 <StackLayout x:Name="stkTab2" IsVisible="false">
                     <StackLayout Spacing="20" Padding="15">
                         <Label Text="Name of stationery" FontSize="Medium" />
-                        <Entry Placeholder="E.G. Pencil Case, CopyBook" FontSize="Small" />
+                        <Entry Placeholder="E.G. Pencil Case, CopyBook" FontSize="Small" x:Name="StatTitle"/>
 
                         <Label Text="Description" FontSize="Medium" />
-                        <Entry Placeholder="E.G. Quality, when bought" FontSize="Small" />
+                        <Entry Placeholder="E.G. Quality, when bought" FontSize="Small" x:Name="StatDesc"/>
+                        
+                        <Label Text="Quantity" FontSize="Medium" />
+                        <Entry Placeholder="Minimum 1" FontSize="Small" x:Name="StatQty"/>
 
                         <Label Text="Pick up times" FontSize="Medium" />
-                        <Entry Placeholder="E.G. Today from 4-6pm or I can leave it outside" FontSize="Small" />
+                        <Entry Placeholder="E.G. Today from 4-6pm or I can leave it outside" FontSize="Small" x:Name="StatPickup" />
 
-                        <Button Text="Submit" Style="{StaticResource FollowButton}"></Button>
+                        <Button Text="Upload"
+                                Style="{StaticResource FollowButton}"
+                                x:Name="AddStat"
+                                Clicked="BtnAddStat"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>

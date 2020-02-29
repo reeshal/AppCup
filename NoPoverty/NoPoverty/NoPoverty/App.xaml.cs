@@ -1,7 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using NoPoverty.Services;
 using NoPoverty.Views;
 
 namespace NoPoverty
@@ -13,7 +12,7 @@ namespace NoPoverty
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            
             MainPage = new MainPage();
            //MainPage = new NavigationPage(new LoginPage());
         }

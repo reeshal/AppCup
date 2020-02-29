@@ -1,6 +1,5 @@
 ﻿using NoPoverty.Helper;
 using NoPoverty.Models;
-using NoPoverty.ViewModels;
 using NoPoverty.Views;
 using System;
 using System.Collections.Generic;

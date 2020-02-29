@@ -33,9 +33,7 @@ namespace NoPoverty.Views
                     case (int)MenuItemType.MyProfile:
                         MenuPages.Add(id, new NavigationPage(new MyProfile()));
                         break;
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
+                    
 
                 }
             }

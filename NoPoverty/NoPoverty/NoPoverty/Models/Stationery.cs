@@ -6,7 +6,7 @@ namespace NoPoverty.Models
 {
     class Stationery
     {
-        public Guid BookId { get; set; }
+        public Guid StationeryId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Donator { get; set; }
