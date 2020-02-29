@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.Media;
+using NoPoverty.Helper;
 
 namespace NoPoverty.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewItem : ContentPage
     {
+        readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
         public NewItem()
         {
             InitializeComponent();
@@ -62,5 +64,15 @@ namespace NoPoverty.Views
                 });
             }
         }
+
+        private async void BtnAddBook(object sender, EventArgs e)
+        {
+            await firebaseHelper.AddBook(BooksTitle.Text, BooksDescription.Text, BooksPickup.Text,"reeshal","");
+            BooksTitle.Text= string.Empty;
+            BooksDescription.Text= string.Empty;
+            BooksPickup.Text= string.Empty;
+            await DisplayAlert("Success", "Books Uploaded Successfully", "OK");
+        }
+
     }
 }

@@ -65,18 +65,20 @@
                 <!-- tab 1 container -->
                 <StackLayout x:Name="stkTab1">
                     <StackLayout Spacing="20" Padding="15">
-                        <Label Text="Title" FontSize="Medium" />
-                        <Entry Placeholder="E.G. A Levels Pure Maths, Harry Potter" FontSize="Small" />
+                        <Label Text="Title" 
+                               FontSize="Medium"/>
+                        <Entry Placeholder="E.G. A Levels Pure Maths, Harry Potter" FontSize="Small" x:Name="BooksTitle"/>
 
                         <Label Text="Description" FontSize="Medium" />
-                        <Entry Placeholder="E.G. Author, genre, Publisher" FontSize="Small" />
+                        <Entry Placeholder="E.G. Author, genre, Publisher" FontSize="Small" x:Name="BooksDescription"/>
 
                         <Label Text="Pick up times" FontSize="Medium" />
-                        <Entry Placeholder="E.G. Today from 4-6pm or I can leave it outside" FontSize="Small" />
+                        <Entry Placeholder="E.G. Today from 4-6pm or I can leave it outside" FontSize="Small" x:Name="BooksPickup" />
 
-
-
-                        <Button Text="Submit" Style="{StaticResource FollowButton}"></Button>
+                        <Button Text="Submit" 
+                                Style="{StaticResource FollowButton}"
+                                x:Name="AddBook"
+                                Clicked="BtnAddBook"/>
                     </StackLayout>
                 </StackLayout>
 
