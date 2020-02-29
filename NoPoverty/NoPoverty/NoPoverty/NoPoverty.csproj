@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FirebaseDatabase.net" Version="4.0.4" />
     <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />  
@@ -52,6 +53,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helper\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 </Project>
