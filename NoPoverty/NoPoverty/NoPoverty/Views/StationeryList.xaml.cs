@@ -30,5 +30,16 @@ namespace NoPoverty.Views
 
             await FetchAllStationery();
         }
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var Stat = args.SelectedItem as Stationery;
+            if (Stat == null)
+                return;
+
+            await Navigation.PushAsync(new ItemDetails(Stat));
+
+            // Manually deselect item.
+            ListOfStationery.SelectedItem = null;
+        }
     }
 }

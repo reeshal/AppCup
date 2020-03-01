@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NoPoverty.Models
 {
-    class Books
+    public class Books
     {
         public Guid BookId { get; set; }
         public string Title { get; set; }
@@ -12,6 +12,7 @@ namespace NoPoverty.Models
         public string Donator { get; set; }
         public string Receiver { get; set; }
         public string PickupTime { get; set; }
+        public string Quantity { get; set; }
         public string ImageUrl { get; set; }
     }
 }

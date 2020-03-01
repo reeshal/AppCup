@@ -34,5 +34,17 @@ namespace NoPoverty.Views
             await FetchAllBooks();
         }
 
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var Book = args.SelectedItem as Books;
+            if (Book == null)
+                return;
+
+            await Navigation.PushAsync(new ItemDetails(Book));
+
+            // Manually deselect item.
+            ListOfBooks.SelectedItem = null;
+        }
+
     }
 }

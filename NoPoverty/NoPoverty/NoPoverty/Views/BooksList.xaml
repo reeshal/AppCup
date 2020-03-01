@@ -8,17 +8,18 @@
              x:Class="NoPoverty.Views.BooksList"
              x:Name="BrowseBooksPage">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="White" Margin="10,20,10,10">
+        <StackLayout BackgroundColor="White" Margin="10,5,10,10">
             <ListView x:Name="ListOfBooks"
-                      HasUnevenRows="true">
+                      HasUnevenRows="true"
+                      ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Padding="0,10,0,10" BackgroundColor="#fbf8f6"  >
+                            <Grid Padding="0,10,0,5" BackgroundColor="#fbf8f6"  >
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="25" />
                                     <RowDefinition Height="250" />
-                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="40" />
                                 </Grid.RowDefinitions>
                                 <StackLayout Orientation="Horizontal" Margin="10,0,10,0" Spacing="5" Grid.Row="0">
                                     <Label Text="{Binding Title}" 
@@ -28,14 +29,14 @@
                                            FontSize="22"
                                            d:Text="Item Title"/>
                                 </StackLayout>
-                                <Image Source="images1.jpg" Grid.Row="1" Aspect="AspectFit" HeightRequest="150" />
+                                <Image Source="images1.jpg" Grid.Row="1" Aspect="AspectFit" HeightRequest="125" />
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="2" Margin="10,0,10,0">
                                     <Label Text="{Binding Donator}" 
                                            HorizontalOptions="Start" 
                                            VerticalOptions="Center"
                                            d:Text="Item descripton"/>
-                                    <Button Text="View" HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
+                                
                             </Grid>
                             
                         </ViewCell>

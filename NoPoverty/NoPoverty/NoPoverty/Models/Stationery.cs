@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NoPoverty.Models
 {
-    class Stationery
+    public class Stationery
     {
         public Guid StationeryId { get; set; }
         public string Title { get; set; }
