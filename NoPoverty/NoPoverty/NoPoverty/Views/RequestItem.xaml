@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Contact"
+             NavigationPage.HasBackButton="False"
+             xmlns:control="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="NoPoverty.Views.RequestItem">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Label Text="Choose how to you want to contact the person" FontSize="20" Margin="10,5,10,10" HorizontalOptions="Center"/>
+            <StackLayout x:Name="Caller" Padding="10,10,10,0" Orientation="Horizontal">
+                <control:CircleImage 
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        Aspect="AspectFit"
+                        Source="call.png"/>
+                <StackLayout Padding="5,0,10,0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Label Text="Call number:" />
+                    <Entry  x:Name="PhoneNumber" Placeholder="(222) 222-2222"/>
+                    <Button x:Name="BtnCall"  Text="Call"  BorderRadius="10" Clicked="BtnCall_Click"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout x:Name="SMSSender" Orientation="Horizontal" Padding="10,10,10,0">
+                <control:CircleImage 
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        Aspect="AspectFit"
+                        Source="Sms.png"/>
+                <StackLayout Padding="5,0,10,0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Entry  x:Name="SMSBody" Placeholder="Compose your message" HeightRequest="50"/>
+                    <Button x:Name="BtnSendSMS" Text="Send message"   BorderRadius="10" Clicked="BtnSend_Click"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout x:Name="EmailSender" Orientation="Horizontal" Padding="10,10,10,0">
+                <control:CircleImage 
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        Aspect="AspectFit"
+                        Source="email.png"/>
+                <StackLayout Padding="5,10,10,0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                    <Entry  x:Name="Email" Placeholder="name@askxammy.com" />
+                    <Entry  x:Name="Subject" Placeholder="Ref:" />
+                    <Entry  x:Name="Body" Placeholder="Compose your Email" HeightRequest="50"/>
+                    <Button x:Name="BtnSendEmail"  Text="Send Email" BorderRadius="10" Clicked="BtnEmail_Click"/>
+                </StackLayout>
+            </StackLayout>
+
+
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
