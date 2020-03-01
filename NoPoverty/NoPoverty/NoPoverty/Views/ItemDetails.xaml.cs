@@ -37,6 +37,12 @@ namespace NoPoverty.Views
             qty.Text = s.Quantity;
         }
 
-        
+        private async void BtnReq_Click(object sender, EventArgs e)
+        {
+            //await Navigation.PushAsync(new RequestItem());
+            //await Navigation.PushAsync(new NavigationPage(new RequestItem()));
+            await Navigation.PushModalAsync(new NavigationPage(new RequestItem()));
+        }
+
     }
 }

@@ -50,7 +50,7 @@
                     <Label Text="Approx Pickup Location"/>
                     <Image Source="location.jpg"  Aspect="AspectFill"/>
                 </StackLayout>
-                <Button Text="Request Item" Grid.Row="6" Style="{StaticResource FollowButton}"/>
+                <Button Text="Request Item" Grid.Row="6" Style="{StaticResource FollowButton}" Clicked="BtnReq_Click"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>
