@@ -72,6 +72,9 @@
                         <Label Text="Description" FontSize="Medium" />
                         <Entry Placeholder="E.G. Author, genre, Publisher" FontSize="Small" x:Name="BooksDescription"/>
 
+                        <Label Text="Quantity" FontSize="Medium" />
+                        <Entry Placeholder="Minimum 1" FontSize="Small" x:Name="BooksQty"/>
+
                         <Label Text="Pick up times" FontSize="Medium" />
                         <Entry Placeholder="E.G. Today from 4-6pm or I can leave it outside" FontSize="Small" x:Name="BooksPickup" />
 

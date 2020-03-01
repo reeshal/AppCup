@@ -67,15 +67,16 @@ namespace NoPoverty.Views
 
         private async void BtnAddBook(object sender, EventArgs e)
         {
-            await firebaseHelper.AddBook(BooksTitle.Text, BooksDescription.Text, BooksPickup.Text,"reeshal","");
+            await firebaseHelper.AddBook(BooksTitle.Text, BooksDescription.Text, BooksPickup.Text,"reeshal","", BooksQty.Text);
             BooksTitle.Text= string.Empty;
             BooksDescription.Text= string.Empty;
             BooksPickup.Text= string.Empty;
+            BooksQty.Text = string.Empty;
             await DisplayAlert("Success", "Book Uploaded Successfully", "OK");
         }
         private async void BtnAddStat(object sender, EventArgs e)
         {
-            await firebaseHelper.AddStationery(StatTitle.Text, StatDesc.Text, BooksPickup.Text, "reeshal", "", StatQty.Text);
+            await firebaseHelper.AddStationery(StatTitle.Text, StatDesc.Text, StatPickup.Text, "reeshal", "", StatQty.Text);
             StatTitle.Text = string.Empty;
             StatDesc.Text = string.Empty;
             BooksPickup.Text = string.Empty;

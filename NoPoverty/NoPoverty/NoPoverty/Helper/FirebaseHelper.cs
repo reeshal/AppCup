@@ -26,7 +26,8 @@ namespace NoPoverty.Helper
                     Donator=item.Object.Donator,
                     Receiver = item.Object.Receiver,
                     PickupTime = item.Object.PickupTime,
-                    ImageUrl=item.Object.ImageUrl
+                    ImageUrl=item.Object.ImageUrl,
+                    Quantity = item.Object.Quantity
                 }).ToList();
         }
         public async Task<List<Stationery>> GetAllStationery()
@@ -47,11 +48,11 @@ namespace NoPoverty.Helper
         }
 
         //receriver is not added . it is updated later on when a request got it
-        public async Task AddBook(string Title, string Description, string PickupTime, string Donator, string ImageUrl)
+        public async Task AddBook(string Title, string Description, string PickupTime, string Donator, string ImageUrl, string Qty)
         {
             await firebase
                 .Child(Child1)
-                .PostAsync(new Books() { BookId = Guid.NewGuid(), Title = Title, Description = Description, Donator= Donator, Receiver="", PickupTime=PickupTime, ImageUrl="" });
+                .PostAsync(new Books() { BookId = Guid.NewGuid(), Title = Title, Description = Description, Quantity = Qty,Donator = Donator, Receiver="", PickupTime=PickupTime, ImageUrl="" });
         }
         public async Task AddStationery(string Title, string Description, string PickupTime, string Donator, string ImageUrl, string Qty)
         {
