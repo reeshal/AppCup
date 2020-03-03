@@ -21,10 +21,10 @@
                 <Image Source="icon.png"/>
             </Frame>
             <StackLayout Padding="20,0,0,0">
-                <Label Text="Username"
+                <Label x:Name="Username"
                         FontAttributes="Bold"
                         FontSize="22" />
-                <Label  Text="Email"
+                <Label  x:Name="Email"
                         TextColor="Gray"
                         FontSize="16" />
             </StackLayout>
@@ -47,7 +47,8 @@
                 HeightRequest="60" 
                 BackgroundColor="#5c91f2"
                 TextColor="White"
-                Font="18" ></Button>
+                Font="18" 
+                Clicked="OnLogout_Clicked"></Button>
     </StackLayout>
 
 </ContentPage>

@@ -5,6 +5,8 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:NoPoverty.Views"
+                  NavigationPage.HasBackButton="False"
+                  NavigationPage.HasNavigationBar="False"
             x:Class="NoPoverty.Views.MainPage">
    
     <MasterDetailPage.Master>
