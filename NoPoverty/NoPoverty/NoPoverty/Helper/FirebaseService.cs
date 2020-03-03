@@ -11,14 +11,14 @@ namespace NoPoverty.Services
 {
     public class FirebaseService
     {
-        private readonly string ChildName = "Users";
+        private readonly string Child3 = "Users";
 
         readonly FirebaseClient firebase = new FirebaseClient("https://nopoverty-66859.firebaseio.com/");
 
         private async Task<List<Users>> GetAllUsers()
         {
             return (await firebase
-                .Child(ChildName)
+                .Child(Child3)
                 .OnceAsync<Users>()).Select(item => new Users
                 {
                     Username = item.Object.Username,
@@ -28,24 +28,23 @@ namespace NoPoverty.Services
                     Address = item.Object.Address,
                     Email = item.Object.Email,
                     PhoneNo = item.Object.PhoneNo,
-                    Number = item.Object.Number,
                     Gender = item.Object.Gender,
                     Password = item.Object.Password
                 }).ToList();
         }
 
-        public async Task AddUsers(string username, string firstname, string lastname, string address, string email, string phoneno, string number, string gender, string password)
+        public async Task AddUsers(string username, string firstname, string lastname, string address, string email, string phoneno,string gender, string password)
         {
             await firebase
-                .Child(ChildName)
-                .PostAsync(new Users() { UserId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Number = number, Gender = gender, Password = password });
+                .Child(Child3)
+                .PostAsync(new Users() { UserId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Gender = gender, Password = password });
         }
 
         private async Task<Users> GetUsers(Guid UsersId)
         {
             var allUsers = await GetAllUsers();
             await firebase
-                .Child(ChildName)
+                .Child(Child3)
                 .OnceAsync<Users>();
             return allUsers.FirstOrDefault(a => a.UserId == UsersId);
         }
@@ -54,7 +53,7 @@ namespace NoPoverty.Services
         {
             var allUsers = await GetAllUsers();
             await firebase
-                .Child(ChildName)
+                .Child(Child3)
                 .OnceAsync<Users>();
             return allUsers.FirstOrDefault(a => a.Username == username);
         }
@@ -62,21 +61,21 @@ namespace NoPoverty.Services
         public async Task UpdateUsers(Guid UsersId, string username, string firstname, string lastname, string address, string email, string phoneno, string number, string gender, string password)
         {
             var toUpdateUsers = (await firebase
-                .Child(ChildName)
+                .Child(Child3)
                 .OnceAsync<Users>()).FirstOrDefault(a => a.Object.UserId == UsersId);
 
             await firebase
-                .Child(ChildName)
+                .Child(Child3)
                 .Child(toUpdateUsers.Key)
-                .PutAsync(new Users() { UserId = UsersId, Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Number = number, Gender = gender, Password = password });
+                .PutAsync(new Users() { UserId = UsersId, Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Gender = gender, Password = password });
         }
 
         public async Task DeleteUsers(Guid UsersId)
         {
             var toDeleteUsers = (await firebase
-                .Child(ChildName)
+                .Child(Child3)
                 .OnceAsync<Users>()).FirstOrDefault(a => a.Object.UserId == UsersId);
-            await firebase.Child(ChildName).Child(toDeleteUsers.Key).DeleteAsync();
+            await firebase.Child(Child3).Child(toDeleteUsers.Key).DeleteAsync();
         }
     }
 }

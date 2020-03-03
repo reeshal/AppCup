@@ -38,5 +38,13 @@ namespace NoPoverty.Views
                 await RootPage.NavigateFromMenu(id);
             };
         }
+        async void OnLogout_Clicked(object sender, EventArgs e)
+        {
+
+            App.IsUserLoggedIn = false;
+            Navigation.InsertPageBefore(new LoginPage(), this);
+            await Navigation.PopAsync();
+
+        }
     }
 }
