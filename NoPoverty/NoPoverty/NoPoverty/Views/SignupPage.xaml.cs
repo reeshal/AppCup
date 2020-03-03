@@ -56,12 +56,13 @@ namespace NoPoverty.Views
                     UserPassword.Text = string.Empty;
 
                     App.IsUserLoggedIn = true;
-                   Navigation.InsertPageBefore(new MainPage(), Navigation.NavigationStack.FirstOrDefault());
-                   //await Navigation.PopAsync();
-
+                    Global.logger = user;
+                    Navigation.InsertPageBefore(new MainPage(), Navigation.NavigationStack.FirstOrDefault());
+                    //await Navigation.PopAsync();  
+                    
                     await Navigation.PopToRootAsync();
 
-                    //await Navigation.PushAsync(new MainPage());
+                    //await Navigation.PushAsync(new MainPage());  //back button works. bad code
 
 
                     //await DisplayAlert("Success", "Book Uploaded Successfully", "OK");

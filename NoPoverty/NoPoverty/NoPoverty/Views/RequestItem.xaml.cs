@@ -1,4 +1,5 @@
-﻿using Plugin.Messaging;
+﻿using NoPoverty.Models;
+using Plugin.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,15 @@ using Xamarin.Forms.Xaml;
 namespace NoPoverty.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    
     public partial class RequestItem : ContentPage
     {
         public RequestItem()
         {
             InitializeComponent();
+            //PhoneNumber.Text = Global.logger.PhoneNo;  //just verifying
         }
-
+        
         private void BtnCall_Click(object sender, EventArgs e)
         {
             var PhoneCallTask = CrossMessaging.Current.PhoneDialer;

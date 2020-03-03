@@ -2,13 +2,13 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using NoPoverty.Views;
+using NoPoverty.Models;
 
 namespace NoPoverty
 {
     public partial class App : Application
     {
-        public static bool IsUserLoggedIn { get; internal set; }
-
+        public static bool IsUserLoggedIn { get; set; }
         public App()
         {
             InitializeComponent();
