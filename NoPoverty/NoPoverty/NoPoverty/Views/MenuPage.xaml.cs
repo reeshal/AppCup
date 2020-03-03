@@ -17,6 +17,8 @@ namespace NoPoverty.Views
         public MenuPage()
         {
             InitializeComponent();
+            Username.Text = Global.logger.Username;
+            Email.Text = Global.logger.Email;
 
             menuItems = new List<HomeMenuItem>
             {
@@ -42,8 +44,8 @@ namespace NoPoverty.Views
         {
 
             App.IsUserLoggedIn = false;
-            Navigation.InsertPageBefore(new LoginPage(), this);
-            await Navigation.PopAsync();
+            Global.logger = null;
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
 
         }
     }

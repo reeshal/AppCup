@@ -21,10 +21,10 @@
                 <Image Source="icon.png"/>
             </Frame>
             <StackLayout Padding="20,0,0,0">
-                <Label Text="Username"
+                <Label x:Name="Username"
                         FontAttributes="Bold"
                         FontSize="22" />
-                <Label  Text="Email"
+                <Label  x:Name="Email"
                         TextColor="Gray"
                         FontSize="16" />
             </StackLayout>
