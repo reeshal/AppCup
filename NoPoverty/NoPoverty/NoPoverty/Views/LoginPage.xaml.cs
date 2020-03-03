@@ -44,8 +44,10 @@ namespace NoPoverty.Views
                     {
                         App.IsUserLoggedIn = true;
                         Global.logger = user;
-                        Navigation.InsertPageBefore(new MainPage(), this);
-                        await Navigation.PopAsync();
+                        // Navigation.InsertPageBefore(new MainPage(), this);
+                        // await Navigation.PopAsync();
+                        Application.Current.MainPage = new MainPage();
+
                     }
                     else
                     {

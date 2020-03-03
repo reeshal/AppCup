@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Plugin.Media;
 using NoPoverty.Helper;
+using NoPoverty.Models;
 
 namespace NoPoverty.Views
 {
@@ -67,7 +68,7 @@ namespace NoPoverty.Views
 
         private async void BtnAddBook(object sender, EventArgs e)
         {
-            await firebaseHelper.AddBook(BooksTitle.Text, BooksDescription.Text, BooksPickup.Text,"reeshal","", BooksQty.Text);
+            await firebaseHelper.AddBook(BooksTitle.Text, BooksDescription.Text, BooksPickup.Text,Global.logger.Username,"", BooksQty.Text);
             BooksTitle.Text= string.Empty;
             BooksDescription.Text= string.Empty;
             BooksPickup.Text= string.Empty;
@@ -76,7 +77,7 @@ namespace NoPoverty.Views
         }
         private async void BtnAddStat(object sender, EventArgs e)
         {
-            await firebaseHelper.AddStationery(StatTitle.Text, StatDesc.Text, StatPickup.Text, "reeshal", "", StatQty.Text);
+            await firebaseHelper.AddStationery(StatTitle.Text, StatDesc.Text, StatPickup.Text, Global.logger.Username, "", StatQty.Text);
             StatTitle.Text = string.Empty;
             StatDesc.Text = string.Empty;
             BooksPickup.Text = string.Empty;
