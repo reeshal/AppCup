@@ -54,8 +54,8 @@ namespace NoPoverty.Views
 
         bool AreCredentialsCorrect(Users user)
         {
-            //return true;
-            return (firebaseservice.GetUsers(user.Username) == user.Username);
+            return true;
+            //return (firebaseservice.GetUsers(user.Username) == user.Username);
           
             //return user.Username == Constants.Username && user.Password == Constants.Password;
 
