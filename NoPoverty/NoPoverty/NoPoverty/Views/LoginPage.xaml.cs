@@ -28,37 +28,37 @@ namespace NoPoverty.Views
 
         async void Login_Clicked(object sender, EventArgs e)
         {
-            var user = new Users
-            {
-                Username = LoginUsername.Text,
-                Password = LoginPassword.Text
-            };
 
-            var isVaild = AreCredentialsCorrect(user);
-            if (isVaild)
-            {
-                App.IsUserLoggedIn = true;
-                Navigation.InsertPageBefore(new MainPage(), this);
-                await Navigation.PopAsync();
+            string Username = LoginUsername.Text;
+            string Password = LoginPassword.Text;
 
-                //await Navigation.PushAsync(new MainPage());
-            }
+            if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+                await DisplayAlert("Empty Values", "Please enter both credentials", "OK");
+
             else
             {
-                await DisplayAlert("Wrong credentials", "Incorrect Password", "OK");
-                LoginPassword.Text = string.Empty;
+                Users user = await firebaseservice.GetUsers(Username);
+                if (user != null)
+                {
+                    if (Username == user.Username && Password == user.Password)
+                    {
+                        App.IsUserLoggedIn = true;
+                        Global.logger = user;
+                        Navigation.InsertPageBefore(new MainPage(), this);
+                        await Navigation.PopAsync();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Login Fail", "Please enter correct password", "OK");
+                        LoginPassword.Text = string.Empty;
+                    }
+                }
+                else
+                {
+                    await DisplayAlert("Login Fail", "User not found", "OK");
+                }
             }
-
-
         }
-
-        bool AreCredentialsCorrect(Users user)
-        {
-            return true;
-            //return (firebaseservice.GetUsers(user.Username) == user.Username);
-          
-            //return user.Username == Constants.Username && user.Password == Constants.Password;
-
-        }
+            
     }
 }

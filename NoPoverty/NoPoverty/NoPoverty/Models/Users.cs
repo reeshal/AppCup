@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NoPoverty.Models
 {
-    class Users
+    public class Users
     {
         public Guid UserId { get; set; }
         public String Username { get; set; }

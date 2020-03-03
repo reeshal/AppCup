@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Title="Login "
-              NavigationPage.HasNavigationBar="False"
              x:Class="NoPoverty.Views.LoginPage">
     <StackLayout HorizontalOptions="FillAndExpand"
                  Margin="15"

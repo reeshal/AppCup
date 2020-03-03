@@ -15,7 +15,7 @@ namespace NoPoverty.Services
 
         readonly FirebaseClient firebase = new FirebaseClient("https://nopoverty-66859.firebaseio.com/");
 
-        private async Task<List<Users>> GetAllUsers()
+        public async Task<List<Users>> GetAllUsers()
         {
             return (await firebase
                 .Child(Child3)
@@ -39,7 +39,7 @@ namespace NoPoverty.Services
                 .Child(Child3)
                 .PostAsync(new Users() { UserId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Gender = gender, Password = password });
         }
-
+        /*
         private async Task<Users> GetUsers(Guid UsersId)
         {
             var allUsers = await GetAllUsers();
@@ -47,9 +47,9 @@ namespace NoPoverty.Services
                 .Child(Child3)
                 .OnceAsync<Users>();
             return allUsers.FirstOrDefault(a => a.UserId == UsersId);
-        }
+        }*/
 
-        private async Task<Users> GetUsers(string username)
+        public async Task<Users> GetUsers(string username)
         {
             var allUsers = await GetAllUsers();
             await firebase
