@@ -7,14 +7,22 @@ namespace NoPoverty
 {
     public partial class App : Application
     {
+        public static bool IsUserLoggedIn { get; internal set; }
 
         public App()
         {
             InitializeComponent();
+            if (!IsUserLoggedIn)
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                MainPage = new NavigationPage(new MainPage());
+            }
 
-            
-            MainPage = new MainPage();
-           //MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new MainPage();
+            //MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

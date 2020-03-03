@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Title="Login "
-             x:Class="NoPoverty.Views.Page1">
+              NavigationPage.HasNavigationBar="False"
+             x:Class="NoPoverty.Views.LoginPage">
     <StackLayout HorizontalOptions="FillAndExpand"
                  Margin="15"
                  VerticalOptions="StartAndExpand">
@@ -14,19 +15,20 @@
                HeightRequest="150"
                Margin="0,40,0,30"
                ></Image>
-        <Entry Placeholder="Username" HeightRequest="90" ></Entry>
-        <Entry Placeholder="Password" HeightRequest="90" Margin="0,0,0,15"></Entry>
+        <Entry Placeholder="Username" HeightRequest="90"  x:Name="LoginUsername"></Entry>
+        <Entry Placeholder="Password" HeightRequest="90" Margin="0,0,0,15"  x:Name="LoginPassword"></Entry>
         <Button Text="Login" 
                 HeightRequest="60" 
                 BackgroundColor="#5c91f2"
                 TextColor="White"
-                Font="18"></Button>
+                Font="18"
+                Clicked="Login_Clicked"></Button>
         <Label Text="No account? Sign Up"
                HorizontalTextAlignment="Center"
                FontSize="16"
                FontAttributes="Bold"
                TextDecorations="Underline">
-            
+
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapToSignup"/>
             </Label.GestureRecognizers>

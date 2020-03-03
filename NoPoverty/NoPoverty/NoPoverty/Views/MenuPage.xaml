@@ -47,7 +47,8 @@
                 HeightRequest="60" 
                 BackgroundColor="#5c91f2"
                 TextColor="White"
-                Font="18" ></Button>
+                Font="18" 
+                Clicked="OnLogout_Clicked"></Button>
     </StackLayout>
 
 </ContentPage>
