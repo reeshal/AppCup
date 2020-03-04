@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoPoverty.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace NoPoverty.Views
         public MyProfile()
         {
             InitializeComponent();
+            UserName.Text = Global.logger.Username;
+            Location.Text = Global.logger.Address;
         }
     }
 }

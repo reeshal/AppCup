@@ -1,4 +1,4 @@
-﻿using Firebase.Database;
+using Firebase.Database;
 using Firebase.Database.Query;
 using NoPoverty.Models;
 using System;
@@ -32,14 +32,14 @@ namespace NoPoverty.Services
                     Password = item.Object.Password
                 }).ToList();
         }
-
+      
         public async Task AddUsers(string username, string firstname, string lastname, string address, string email, string phoneno,string gender, string password)
         {
             await firebase
                 .Child(Child3)
                 .PostAsync(new Users() { UserId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Gender = gender, Password = password });
         }
-        /*
+      /*
         private async Task<Users> GetUsers(Guid UsersId)
         {
             var allUsers = await GetAllUsers();

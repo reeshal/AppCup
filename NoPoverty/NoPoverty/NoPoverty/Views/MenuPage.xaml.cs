@@ -17,13 +17,16 @@ namespace NoPoverty.Views
         public MenuPage()
         {
             InitializeComponent();
+            Username.Text = Global.logger.Username;
+            Email.Text = Global.logger.Email;
 
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
                 new HomeMenuItem {Id = MenuItemType.MyProfile, Title="My Profile" },
                 new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="Products Donated" },
-                new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="Products Picked" }
+                new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="Products Picked" },
+                new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="About" }
             }; 
 
             ListViewMenu.ItemsSource = menuItems;
@@ -38,12 +41,12 @@ namespace NoPoverty.Views
                 await RootPage.NavigateFromMenu(id);
             };
         }
-        async void OnLogout_Clicked(object sender, EventArgs e)
+        void OnLogout_Clicked(object sender, EventArgs e)
         {
 
             App.IsUserLoggedIn = false;
-            Navigation.InsertPageBefore(new LoginPage(), this);
-            await Navigation.PopAsync();
+            Global.logger = null;
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
 
         }
     }

@@ -10,7 +10,7 @@ namespace NoPoverty.Models
         MyProfile,
         MyProductsDonated,
         MyProductsReceived,
-        Browse
+        About
     }
     public class HomeMenuItem
     {

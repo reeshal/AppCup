@@ -57,15 +57,12 @@ namespace NoPoverty.Views
 
                     App.IsUserLoggedIn = true;
                     Global.logger = user;
-                    Navigation.InsertPageBefore(new MainPage(), Navigation.NavigationStack.FirstOrDefault());
-                    //await Navigation.PopAsync();  
-                    
-                    await Navigation.PopToRootAsync();
-
+                    // Navigation.InsertPageBefore(new MainPage(), Navigation.NavigationStack.FirstOrDefault());
+                    // await Navigation.PopToRootAsync();
                     //await Navigation.PushAsync(new MainPage());  //back button works. bad code
 
+                    Application.Current.MainPage = new MainPage();
 
-                    //await DisplayAlert("Success", "Book Uploaded Successfully", "OK");
                 }
                 else
                 {

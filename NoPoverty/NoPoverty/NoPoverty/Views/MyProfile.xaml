@@ -27,8 +27,8 @@
 
                 <!--  Profile Name  -->
                 <StackLayout Grid.Row="1" Padding="0,50,0,00" HorizontalOptions="Center">
-                    <Label Style="{StaticResource ProfileNameLabel}" Text="User name" FontSize="22" />
-                    <Label Margin="0,-5" Style="{StaticResource ProfileTagLabel}" Text="Location" />
+                    <Label Style="{StaticResource ProfileNameLabel}" x:Name="UserName" FontSize="22" />
+                    <Label Margin="0,-5" Style="{StaticResource ProfileTagLabel}" x:Name="Location" />
                 </StackLayout>
 
                 <!--  Social Stats Section  -->
