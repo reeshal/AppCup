@@ -15,6 +15,7 @@ namespace NoPoverty.Models
         public String PhoneNo { get; set; }
         public String Gender { get; set; }
         public String Password { get; set; }
+        public String ConfirmPassword { get; set; }
 
         //profile pic
 
