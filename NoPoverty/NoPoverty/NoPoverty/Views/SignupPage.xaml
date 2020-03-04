@@ -3,50 +3,168 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:BEHAVIOURS="clr-namespace:NoPoverty.Behaviours"
              mc:Ignorable="d"
              x:Class="NoPoverty.Views.SignupPage">
     <ScrollView>
-    <StackLayout HorizontalOptions="FillAndExpand"
+        <StackLayout HorizontalOptions="FillAndExpand"
                  Margin="15"
                  VerticalOptions="StartAndExpand">
-            <Frame CornerRadius="100" 
+            <Grid HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                ColumnSpacing="0"
+                RowSpacing="0"
+                Padding="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="70" />
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <!--Details Tab-->
+
+
+                <Label Text="Sign Up" HorizontalTextAlignment="Center" FontSize="34"></Label>
+
+
+                <StackLayout Grid.Row="1" 
+                    Grid.Column="0"
+                    Padding="7.5"
+                    VerticalOptions="FillAndExpand">
+                    <Button Clicked="Tab1Clicked" ImageSource="book_selected.png" Text="Donor"></Button>
+
+                </StackLayout>
+
+                <!-- Tab 2 -->
+                <StackLayout Grid.Row="1"
+                    Grid.Column="1"
+                    Padding="7.5"
+                    VerticalOptions="FillAndExpand">
+                    <Button Clicked="Tab2Clicked" ImageSource="stationery_selected.png" Text="Institution"></Button>
+
+                </StackLayout>
+            </Grid>
+
+            <!-- tab 1 container -->
+            <StackLayout x:Name="stkTab1">
+                <Frame CornerRadius="100" 
                    HeightRequest="125"
                    WidthRequest="125"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    Padding="0"
-                   IsClippedToBounds="True">    
-                <Image Source="uploadicon.png"   
+                   IsClippedToBounds="True">
+                    <Image Source="uploadicon.png"   
                        Margin="20,20,20,20">
-                </Image>
-            </Frame>
-            <Label Text="Upload a profile picture" HorizontalTextAlignment="Center"></Label>
-            <StackLayout Orientation="Horizontal" >
-                <Entry Placeholder="First Name" HeightRequest="80" HorizontalOptions="FillAndExpand" x:Name="UserFname"></Entry>
-                <Entry Placeholder="Last Name" HeightRequest="80" HorizontalOptions="FillAndExpand" x:Name="UserLname"></Entry>
-            </StackLayout>
+                    </Image>
+                </Frame>
+                <Label Text="Upload a profile picture" HorizontalTextAlignment="Center"></Label>
+                <StackLayout Orientation="Horizontal" >
+                    <Entry Placeholder="First Name" HeightRequest="80" HorizontalOptions="FillAndExpand" x:Name="UserFname"></Entry>
+                    <Entry Placeholder="Last Name" HeightRequest="80" HorizontalOptions="FillAndExpand" x:Name="UserLname"></Entry>
+                </StackLayout>
 
-            <Entry Placeholder="Address" HeightRequest="80" x:Name="UserAddress"></Entry>
-            <Entry Placeholder="Email" HeightRequest="80" x:Name="UserEmail"></Entry>
-            <Entry Placeholder="Contact Number" HeightRequest="80" x:Name="UserContactNum"></Entry>
-            <Entry Placeholder="Username" HeightRequest="80" x:Name="UserUsername"></Entry>
-            <Entry Placeholder="Password" HeightRequest="80" x:Name="UserPassword"></Entry>
-            <Entry Placeholder="Confirm Password" HeightRequest="80" Margin="0,0,0,15" x:Name="ConfirmPassword"></Entry>
-        <Button Text="Sign Up" 
+                <Entry Placeholder="Address" HeightRequest="80" x:Name="UserAddress"></Entry>
+                <Entry Placeholder="Email" HeightRequest="80" x:Name="UserEmail" Keyboard="Email"></Entry>
+                <Entry Placeholder="Contact Number" HeightRequest="80" x:Name="UserContactNum" Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <BEHAVIOURS:PhoneMask Mask="(XXX) XXXX-XXXX" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Entry Placeholder="Username" HeightRequest="80" x:Name="UserUsername"></Entry>
+                <Entry Placeholder="Password" HeightRequest="80" x:Name="UserPassword"></Entry>
+                <Entry Placeholder="Confirm Password" HeightRequest="80" Margin="0,0,0,15" x:Name="ConfirmPassword"></Entry>
+
+                <StackLayout x:Name="StackIndicator" Margin="0,5" IsVisible="False" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label>PLEASE WAIT WHILE WE CREATE YOUR ACCOUNT</Label>
+                </StackLayout>
+
+                <Button Text="Sign Up" 
                 HeightRequest="60" 
                 BackgroundColor="#5c91f2"
                 TextColor="White"
                 Font="18"
                 Clicked="SignUpButtonClicked"></Button>
-            <Label Text="Already a member? Login"
+                <Label Text="Already a member? Login"
                HorizontalTextAlignment="Center"
                FontSize="16"
                FontAttributes="Bold"
                TextDecorations="Underline">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapToLogin"/>
-                </Label.GestureRecognizers>
-            </Label>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapToLogin"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <!-- tab 2 container -->
+            <StackLayout x:Name="stkTab2" IsVisible="false">
+                <Label Text="Representative Information"/>
+                <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="640">
+                    
+                    <StackLayout Spacing="10" Padding="5">
+                        <StackLayout Orientation="Horizontal" >
+                            <Entry Placeholder="First Name" HeightRequest="80" HorizontalOptions="FillAndExpand" x:Name="RepresentativeFname"></Entry>
+                            <Entry Placeholder="Last Name" HeightRequest="80" HorizontalOptions="FillAndExpand" x:Name="RepresentativeLname"></Entry>
+                        </StackLayout>
+
+                        <Entry Placeholder="Address" HeightRequest="80" x:Name="RepresentativeAddress"></Entry>
+                        <Entry Placeholder="Email" HeightRequest="80" x:Name="RepresentativeEmail" Keyboard="Email"></Entry>
+                        <Entry Placeholder="Contact Number" HeightRequest="80" x:Name="RepresentativePhoneNum" Keyboard="Numeric">
+                            <Entry.Behaviors>
+                                <BEHAVIOURS:PhoneMask Mask="(XXX) XXXX-XXXX" />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Entry Placeholder="Username" HeightRequest="80" x:Name="RepresentativeUsername"></Entry>
+                        <Entry Placeholder="Password" HeightRequest="80" x:Name="RepresentativePassword"></Entry>
+                        <Entry Placeholder="Confirm Password" HeightRequest="80" Margin="0,0,0,15" x:Name="RepresentativeConfirmPassword"></Entry>
+                    </StackLayout>
+                </Frame>
+
+                <Label Text="Institution Information"/>
+                <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="260">
+
+                    <StackLayout Spacing="10" Padding="5">
+                        <Entry Placeholder="Institution Name" HeightRequest="80" x:Name="InstitutionName"></Entry>
+
+                        <Label Text="Upload certification picture" HorizontalTextAlignment="Start"></Label>
+                        <Button Text="Upload"
+                                Style="{StaticResource FollowButton}"
+                                x:Name="AddStat"
+                                />
+                        <Entry Placeholder="Detailed Dietary Requirements" HeightRequest="80" x:Name="DietaryReq"></Entry>
+                        
+                    </StackLayout>
+                </Frame>
+                <StackLayout x:Name="StackIndicator2" Margin="0,5" IsVisible="False" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Label>PLEASE WAIT WHILE WE CREATE YOUR ACCOUNT</Label>
+                </StackLayout>
+
+                <Button Text="Sign Up" 
+                HeightRequest="60" 
+                BackgroundColor="#5c91f2"
+                TextColor="White"
+                Font="18"
+                Clicked="SignUpButtonClicked"></Button>
+                <Label Text="Already a member? Login"
+               HorizontalTextAlignment="Center"
+               FontSize="16"
+               FontAttributes="Bold"
+               TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapToLogin"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            
+
+
+
 
         </StackLayout>
     </ScrollView>
