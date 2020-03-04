@@ -21,25 +21,43 @@ namespace NoPoverty.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Meals, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemTypeDonor.Home, (NavigationPage)Detail);
         }
 
-        public async Task NavigateFromMenu(int id)
+        public async Task NavigateFromMenu(int id,String UserType)
         {
-            if (!MenuPages.ContainsKey(id))
+            if (UserType == "Donor")
             {
-                switch (id)
+                if (!MenuPages.ContainsKey(id))
                 {
-                    case (int)MenuItemType.Calendar:
-                        //MenuPages.Add(id, new NavigationPage(new RepCalendar()));
-                        break;
-                    case (int)MenuItemType.UpdateProfile:
-                        //MenuPages.Add(id, new NavigationPage(new UpdateRepProfile()));
-                        break;
-
+                    switch (id)
+                    {
+                        case (int)MenuItemTypeDonor.MyDonation:
+                            //MenuPages.Add(id, new NavigationPage(new MyDonationDonor()));
+                            break;
+                        case (int)MenuItemTypeDonor.UpdateProfile:
+                            //MenuPages.Add(id, new NavigationPage(new UpdateProfileDonor()));
+                            break;
+                    }
                 }
             }
+            else
+            {
+                if (!MenuPages.ContainsKey(id))
+                {
+                    switch (id)
+                    {
+                        case (int)MenuItemType.Calendar:
+                            //MenuPages.Add(id, new NavigationPage(new RepCalendar()));
+                            break;
+                        case (int)MenuItemType.UpdateProfile:
+                            //MenuPages.Add(id, new NavigationPage(new UpdateRepProfile()));
+                            break;
+                        
 
+                    }
+                }
+            }
             var newPage = MenuPages[id];
 
             if (newPage != null && Detail != newPage)
