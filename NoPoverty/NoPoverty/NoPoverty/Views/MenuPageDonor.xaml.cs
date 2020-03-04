@@ -21,8 +21,8 @@ namespace NoPoverty.Views
         public MenuPageDonor()
         {
             InitializeComponent();
-            //Username.Text = Global.logger.Username;
-            //Email.Text = Global.logger.Email;
+            Username.Text = Global.currentDonor.Username;
+            Email.Text = Global.currentDonor.Email;
 
             Username.Text = Global.currentRep.Username;
             Email.Text = Global.currentRep.InstitutionName;
@@ -31,7 +31,7 @@ namespace NoPoverty.Views
             {
                 new HomeMenuItemDonor {Id = MenuItemTypeDonor.Home, Title="List of institutions" },
                 new HomeMenuItemDonor {Id = MenuItemTypeDonor.MyDonation, Title="My Donations" },
-                new HomeMenuItemDonor {Id = MenuItemTypeDonor.UpdateProfile, Title="Update Profile" },
+                new HomeMenuItemDonor {Id = MenuItemTypeDonor.Profile, Title="Profile" },
             };
 
             ListViewMenuDonor.ItemsSource = menuItemsDonor;

@@ -35,8 +35,8 @@ namespace NoPoverty.Views
                         case (int)MenuItemTypeDonor.MyDonation:
                             //MenuPages.Add(id, new NavigationPage(new MyDonationDonor()));
                             break;
-                        case (int)MenuItemTypeDonor.UpdateProfile:
-                            //MenuPages.Add(id, new NavigationPage(new UpdateProfileDonor()));
+                        case (int)MenuItemTypeDonor.Profile:
+                            MenuPages.Add(id, new NavigationPage(new MyProfile()));
                             break;
                     }
                 }

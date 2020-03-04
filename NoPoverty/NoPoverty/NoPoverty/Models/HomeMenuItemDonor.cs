@@ -8,7 +8,7 @@ namespace NoPoverty.Models
     {
         Home,
         MyDonation,
-        UpdateProfile
+        Profile
 
     }
     public class HomeMenuItemDonor

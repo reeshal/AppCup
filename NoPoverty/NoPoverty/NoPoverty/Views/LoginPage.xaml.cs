@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NoPoverty.Helper;
 using NoPoverty.Models;
 using NoPoverty.Services;
 using Xamarin.Forms;
@@ -13,7 +14,7 @@ namespace NoPoverty.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        readonly FirebaseService firebaseservice = new FirebaseService();
+        readonly FirebaseUsers firebaseservice = new FirebaseUsers();
 
         public LoginPage()
         {
@@ -34,17 +35,17 @@ namespace NoPoverty.Views
             string Password = LoginPassword.Text;
 
             if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
-                await DisplayAlert("Empty Values", "Please enter both credentials", "OK");
+                await DisplayAlert("Empty Fields", "Please enter both credentials", "OK");
 
             else
             {
-                Users user = await firebaseservice.GetUsers(Username);
+                Donor user = await firebaseservice.GetDonor(Username);
                 if (user != null)
                 {
                     if (Username == user.Username && Password == user.Password)
                     {
                         App.IsUserLoggedIn = true;
-                        //Global.logger = user;
+                        Global.currentDonor = user;
                         // Navigation.InsertPageBefore(new MainPage(), this);
                         // await Navigation.PopAsync();
                         Application.Current.MainPage = new MainPage();
