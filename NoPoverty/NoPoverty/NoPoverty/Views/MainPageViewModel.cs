@@ -22,52 +22,35 @@ namespace NoPoverty.Views
 
             // testing all kinds of adding events
             // when initializing collection
-            Events = new EventCollection
-            {
-                [DateTime.Now.AddDays(-3)] = new List<EventModel>(GenerateEvents(10, "Cool")),
-            };
+            Events = new EventCollection();
 
-            // with add method
-            Events.Add(DateTime.Now.AddDays(-1), new List<EventModel>(GenerateEvents(5, "Cool")));
-            
-            // with indexer
-            Events[DateTime.Now] = new List<EventModel>(GenerateEvents(2, "Boring"));
 
-            Task.Delay(5000).ContinueWith(_ =>
-            {
-                // indexer - update later
-                Events[DateTime.Now] = new ObservableCollection<EventModel>(GenerateEvents(10, "Cool"));
-
-                // add later
-                Events.Add(DateTime.Now.AddDays(3), new List<EventModel>(GenerateEvents(5, "Cool")));
-
-                // indexer later
-                Events[DateTime.Now.AddDays(10)] = new List<EventModel>(GenerateEvents(10, "Boring"));
-
-                // add later
-                Events.Add(DateTime.Now.AddDays(15), new List<EventModel>(GenerateEvents(10, "Cool")));
-
-                Task.Delay(3000).ContinueWith(t =>
-                {
-                    // get observable collection later
-                    var todayEvents = Events[DateTime.Now] as ObservableCollection<EventModel>;
-
-                    // insert/add items to observable collection
-                    todayEvents.Insert(0, new EventModel { Name = "Cool event insert", Description = "This is Cool event's description!" });
-                    todayEvents.Add(new EventModel { Name = "Cool event add", Description = "This is Cool event's description!" });
-                });
-            }, TaskScheduler.FromCurrentSynchronizationContext());
+            //Add Event
+            AddEvent("03/08/2020 08:00:34", "Wa xD", "Ene ler pu leV sa?");
+            AddEvent("03/09/2020 18:00:34", "Waaaooooa xD", "Ene ler pu drmi sa?");
         }
 
-        private IEnumerable<EventModel> GenerateEvents(int count, string name)
+
+
+
+
+
+
+
+        protected IEnumerable<EventModel> AddEvents(string name, string desc)
         {
-            return Enumerable.Range(1, count).Select(x => new EventModel
+            return Enumerable.Range(1,1).Select(x => new EventModel
             {
-                Name = $"{name} event{x}",
-                Description = $"This is {name} event{x}'s description!"
+                Name = $"{name}",
+                Description = $"{desc}"
             });
         }
-
+        public void AddEvent(string datetime, string name, string desc)
+        {
+            DateTime dt = new DateTime();
+            dt = DateTime.Parse(datetime);
+            Events.Add(dt, new List<EventModel>(AddEvents(name, desc)));
+        }
         public EventCollection Events { get; }
         public int Month { get; set; } = DateTime.Now.Month;
         public int Year { get; set; } = DateTime.Now.Year;
