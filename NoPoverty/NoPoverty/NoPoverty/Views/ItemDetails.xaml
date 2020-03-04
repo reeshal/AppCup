@@ -56,8 +56,8 @@
                             <x:Arguments>
                                 <maps:Position>
                                     <x:Arguments>
-                                        <x:Double>36.9628066</x:Double>
-                                        <x:Double>-122.0194722</x:Double>
+                                            <x:Double>-20.4124809</x:Double>
+                                            <x:Double>57.6878463</x:Double>
                                     </x:Arguments>
                                 </maps:Position>
                                 <x:Double>0.01</x:Double>
@@ -66,19 +66,31 @@
                         </maps:MapSpan>
                     </x:Arguments>
                     <maps:Map.Pins>
-                        <maps:Pin Label="Santa Cruz"
+                        <maps:Pin Label="Reeshal"
                           Address="The city with a boardwalk"
                           Type="Place">
                             <maps:Pin.Position>
                                 <maps:Position>
                                     <x:Arguments>
-                                        <x:Double>36.9628066</x:Double>
-                                        <x:Double>-122.0194722</x:Double>
+                                            <x:Double>-20.4124809</x:Double>
+                                            <x:Double>57.6878400</x:Double>
                                     </x:Arguments>
                                 </maps:Position>
                             </maps:Pin.Position>
                         </maps:Pin>
-                    </maps:Map.Pins>
+                            <maps:Pin Label="Hevin"
+                          Address="xD"
+                          Type="Place">
+                                <maps:Pin.Position>
+                                    <maps:Position>
+                                        <x:Arguments>
+                                            <x:Double>-20.4124809</x:Double>
+                                            <x:Double>57.6878470</x:Double>
+                                        </x:Arguments>
+                                    </maps:Position>
+                                </maps:Pin.Position>
+                            </maps:Pin>
+                        </maps:Map.Pins>
                 </maps:Map>
                   </StackLayout>
 

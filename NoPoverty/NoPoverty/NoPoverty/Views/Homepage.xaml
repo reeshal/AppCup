@@ -27,5 +27,10 @@
                 <Views:StationeryList/>
             </x:Arguments>
         </NavigationPage>
+        <NavigationPage Title="Calendar" IconImageSource="calendar.png">
+            <x:Arguments>
+                <Views:Calendar/>
+            </x:Arguments>
+        </NavigationPage>
     </TabbedPage.Children>
 </TabbedPage>
