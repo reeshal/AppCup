@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:local="clr-namespace:NoPoverty.Views"
              mc:Ignorable="d"
              x:Class="NoPoverty.Views.ItemDetails"
              xmlns:control="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
@@ -46,11 +48,41 @@
                     <Label Text="Pickup Times" FontSize="20" FontAttributes="Bold"/>
                     <Label x:Name="pickuptime" FontSize="16"/>
                 </StackLayout>
-                <StackLayout Grid.Row="5" Orientation="Vertical">
-                    <Label Text="Approx Pickup Location"/>
-                    <Image Source="location.jpg"  Aspect="AspectFill"/>
-                </StackLayout>
-                <Button Text="Request Item" Grid.Row="6" Style="{StaticResource FollowButton}" Clicked="BtnReq_Click"/>
+                <StackLayout Orientation="Vertical" Grid.Row="5" Margin="0,5,0,10">
+
+                    <maps:Map x:Name="map" IsShowingUser="True">
+                    <x:Arguments>
+                        <maps:MapSpan>
+                            <x:Arguments>
+                                <maps:Position>
+                                    <x:Arguments>
+                                        <x:Double>36.9628066</x:Double>
+                                        <x:Double>-122.0194722</x:Double>
+                                    </x:Arguments>
+                                </maps:Position>
+                                <x:Double>0.01</x:Double>
+                                <x:Double>0.01</x:Double>
+                            </x:Arguments>
+                        </maps:MapSpan>
+                    </x:Arguments>
+                    <maps:Map.Pins>
+                        <maps:Pin Label="Santa Cruz"
+                          Address="The city with a boardwalk"
+                          Type="Place">
+                            <maps:Pin.Position>
+                                <maps:Position>
+                                    <x:Arguments>
+                                        <x:Double>36.9628066</x:Double>
+                                        <x:Double>-122.0194722</x:Double>
+                                    </x:Arguments>
+                                </maps:Position>
+                            </maps:Pin.Position>
+                        </maps:Pin>
+                    </maps:Map.Pins>
+                </maps:Map>
+                  </StackLayout>
+
+                    <Button Text="Request Item" Grid.Row="6" Margin="0,5,0,10" Style="{StaticResource FollowButton}" Clicked="BtnReq_Click"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

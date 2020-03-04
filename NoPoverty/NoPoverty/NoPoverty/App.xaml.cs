@@ -12,6 +12,7 @@ namespace NoPoverty
         public App()
         {
             InitializeComponent();
+            
             if (!IsUserLoggedIn)
             {
                 MainPage = new NavigationPage(new LoginPage());
