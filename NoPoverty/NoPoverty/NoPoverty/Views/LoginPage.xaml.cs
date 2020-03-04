@@ -14,6 +14,7 @@ namespace NoPoverty.Views
     public partial class LoginPage : ContentPage
     {
         readonly FirebaseService firebaseservice = new FirebaseService();
+
         public LoginPage()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace NoPoverty.Views
                 }
             }
         }
-            
+
+
     }
 }
