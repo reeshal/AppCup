@@ -44,11 +44,11 @@ namespace NoPoverty.Views
                     if (Username == user.Username && Password == user.Password)
                     {
                         App.IsUserLoggedIn = true;
-                        Global.logger = user;
+                        //Global.logger = user;
                         // Navigation.InsertPageBefore(new MainPage(), this);
                         // await Navigation.PopAsync();
                         Application.Current.MainPage = new MainPage();
-
+                        //redirect to another =mainpaege
                     }
                     else
                     {

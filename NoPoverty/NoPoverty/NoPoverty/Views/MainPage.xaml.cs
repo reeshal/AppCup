@@ -21,7 +21,7 @@ namespace NoPoverty.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Meals, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -30,10 +30,12 @@ namespace NoPoverty.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.MyProfile:
-                        MenuPages.Add(id, new NavigationPage(new MyProfile()));
+                    case (int)MenuItemType.Calendar:
+                        //MenuPages.Add(id, new NavigationPage(new RepCalendar()));
                         break;
-                    
+                    case (int)MenuItemType.UpdateProfile:
+                        //MenuPages.Add(id, new NavigationPage(new UpdateRepProfile()));
+                        break;
 
                 }
             }
