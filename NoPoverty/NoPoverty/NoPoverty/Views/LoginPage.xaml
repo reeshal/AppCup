@@ -20,8 +20,8 @@
                 HeightRequest="60" 
                 BackgroundColor="#5c91f2"
                 TextColor="White"
-                Font="18"
-                Clicked="Login_Clicked"></Button>
+                Font="18">
+            <!--Clicked="Login_Clicked" --></Button>
         <Label Text="No account? Sign Up"
                HorizontalTextAlignment="Center"
                FontSize="16"

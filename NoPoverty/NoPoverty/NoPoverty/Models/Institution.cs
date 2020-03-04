@@ -17,6 +17,7 @@ namespace NoPoverty.Models
         public String Password { get; set; }
         public String InstitutionName { get; set; }
         public String DietaryRequirements { get; set; }
+        public String InstitutionDetails { get; set; }
 
         //foto certificate
     }

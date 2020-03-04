@@ -1,5 +1,4 @@
-﻿using NoPoverty.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +10,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Text.RegularExpressions;
 using NoPoverty.Helper;
+using NoPoverty.Views.DonorView;
 
 namespace NoPoverty.Views
 {
@@ -125,7 +125,7 @@ namespace NoPoverty.Views
                     // Navigation.InsertPageBefore(new MainPage(), Navigation.NavigationStack.FirstOrDefault());
                     // await Navigation.PopToRootAsync();
                     //await Navigation.PushAsync(new MainPage());  //back button works. bad code
-                    Application.Current.MainPage = new MainPage();
+                    Application.Current.MainPage = new MainPageDonor();
 
                 }
                 else
@@ -152,7 +152,8 @@ namespace NoPoverty.Views
                 PhoneNo = RepresentativePhoneNum.Text,
                 Password = RepresentativePassword.Text,
                 InstitutionName = institutionName.Text,
-                DietaryRequirements = DietaryReq.Text
+                DietaryRequirements = DietaryReq.Text,
+                InstitutionDetails=insDetails.Text
             };
 
             //validation
@@ -217,7 +218,7 @@ namespace NoPoverty.Views
                 var rootpage = Navigation.NavigationStack.FirstOrDefault();
                 if (rootpage != null)
                 {
-                    await fb.AddRepresentative(RepresentativeUsername.Text, RepresentativeFname.Text, RepresentativeLname.Text, RepresentativeAddress.Text, RepresentativeEmail.Text, RepresentativePhoneNum.Text, RepresentativePassword.Text, institutionName.Text, DietaryReq.Text);
+                    await fb.AddRepresentative(RepresentativeUsername.Text, RepresentativeFname.Text, RepresentativeLname.Text, RepresentativeAddress.Text, RepresentativeEmail.Text, RepresentativePhoneNum.Text, RepresentativePassword.Text, institutionName.Text, DietaryReq.Text, insDetails.Text);
 
                     App.IsUserLoggedIn = true;
                     Global.currentRep = user;

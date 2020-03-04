@@ -46,8 +46,8 @@ namespace NoPoverty.Helper
                     PhoneNo = item.Object.PhoneNo,
                     Password = item.Object.Password,
                     InstitutionName= item.Object.InstitutionName,
-                    DietaryRequirements=item.Object.DietaryRequirements
-
+                    DietaryRequirements=item.Object.DietaryRequirements,
+                    InstitutionDetails=item.Object.InstitutionDetails                
                 }).ToList();
         }
 
@@ -57,11 +57,11 @@ namespace NoPoverty.Helper
                 .Child(Child1)
                 .PostAsync(new Donor() { DonorId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Password = password });
         }
-        public async Task AddRepresentative(string username, string firstname, string lastname, string address, string email, string phoneno, string password, string institutionName, string dietaryReq)
+        public async Task AddRepresentative(string username, string firstname, string lastname, string address, string email, string phoneno, string password, string institutionName, string dietaryReq, string details)
         {
             await firebase
                 .Child(Child2)
-                .PostAsync(new Institution() { RepresentativeId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Password = password, InstitutionName=institutionName, DietaryRequirements=dietaryReq});
+                .PostAsync(new Institution() { RepresentativeId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Password = password, InstitutionName=institutionName, DietaryRequirements=dietaryReq, InstitutionDetails=details});
         }
 
         public async Task<Donor> GetDonor(string username)
@@ -81,5 +81,6 @@ namespace NoPoverty.Helper
                 .OnceAsync<Institution>();
             return allRep.FirstOrDefault(a => a.Username == username);
         }
+
     }
 }

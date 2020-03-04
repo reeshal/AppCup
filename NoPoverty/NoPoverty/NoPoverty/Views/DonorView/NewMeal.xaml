@@ -6,10 +6,30 @@
              mc:Ignorable="d"
              x:Class="NoPoverty.Views.DonorView.NewMeal">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="10,20,10,10" >
+                <Frame CornerRadius="100" 
+                   HeightRequest="125"
+                   WidthRequest="125"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Padding="0"
+                   IsClippedToBounds="True">
+                    <Image Source="uploadicon.png"   
+                       Margin="20,20,20,20">
+                    </Image>
+                </Frame>
+                <Label Text="Upload a picture of your food" HorizontalTextAlignment="Center"></Label>
+                <Entry Placeholder="Title of Meal" HeightRequest="80" x:Name="FoodTitle"></Entry>
+                <Entry Placeholder="Description" HeightRequest="80" x:Name="FoodDesc"></Entry>
+                <Entry Placeholder="Calorie/meal" HeightRequest="80" x:Name="FoodCalo"></Entry>
+                <Entry Placeholder="Healthiness" HeightRequest="80" x:Name="FoodHealthiness"></Entry>
+                <Entry Placeholder="Quantity" HeightRequest="80" x:Name="FoodQty"></Entry>
+                <Button Text="Upload Meal" 
+                                Style="{StaticResource FollowButton}"
+                                Clicked="btnaddMeal"/>
+            </StackLayout>
+                
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -22,7 +22,8 @@ namespace NoPoverty.Views
         }
         private async Task FetchAllMeals()
         {
-            var allBooks = await firebaseHelper.GetAllMeal();
+            var allBooks = await firebaseHelper.GetMealsByInstitution(Global.currentRep.InstitutionName);
+            //var allBooks = await firebaseHelper.GetAllMeal();
 
             ListOfMeals.ItemsSource = allBooks;
         }

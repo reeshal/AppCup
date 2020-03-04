@@ -116,18 +116,19 @@
                 </Frame>
 
                 <Label Text="Institution Information"/>
-                <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="260">
+                <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="350">
 
                     <StackLayout Spacing="10" Padding="5">
                         <Entry Placeholder="Institution Name" HeightRequest="80" x:Name="institutionName"></Entry>
 
                         <Label Text="Upload certification picture" HorizontalTextAlignment="Start"></Label>
-                        <!--
+                        
                         <Button Text="Upload"
                                 Style="{StaticResource FollowButton}"
                                 x:Name="AddStat"
-                                /> -->
+                                /> 
                         <Entry Placeholder="Detailed Dietary Requirements" HeightRequest="80" x:Name="DietaryReq"></Entry>
+                        <Entry Placeholder="Institution Details" HeightRequest="80" x:Name="insDetails"></Entry>
                         
                     </StackLayout>
                 </Frame>

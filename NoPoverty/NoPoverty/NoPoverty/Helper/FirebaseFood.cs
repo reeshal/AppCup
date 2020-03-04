@@ -34,5 +34,24 @@ namespace NoPoverty.Helper
                 .Child(Child3)
                 .PostAsync(new Meal() { MealId = Guid.NewGuid(), Title=title, Description=description,Donator=donator, Calorie=calorie,Healthiness=healthiness, Quantity=qty,ImageUrl=""});
         }
+
+        public async Task<List<Meal>> GetMealsByInstitution(string institutionName)
+        {
+            return (await firebase
+                .Child(Child3)
+                .Child("InstitutionName")
+                .OrderByKey()
+                .EqualTo(()=>institutionName)
+                .OnceAsync<Meal>()).Select(item => new Meal
+                {
+                    Title = item.Object.Title,
+                    Description = item.Object.Description,
+                    Donator = item.Object.Donator,
+                    Calorie = item.Object.Calorie,
+                    Healthiness = item.Object.Healthiness,
+                    Quantity = item.Object.Quantity,
+                    //ImageUrl = item.Object.ImageUrl
+                }).ToList();
+        }
     }
 }
