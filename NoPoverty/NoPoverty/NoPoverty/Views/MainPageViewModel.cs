@@ -26,8 +26,13 @@ namespace NoPoverty.Views
 
 
             //Add Event
-            AddEvent("03/08/2020 08:00:34", "Wa xD", "Ene ler pu leV sa?");
-            AddEvent("03/09/2020 18:00:34", "Waaaooooa xD", "Ene ler pu drmi sa?");
+            AddEvent2("03/08/2020 08:00:34", "Wa xD", "Ene ler pu leV sa?");
+            AddEvent2("03/08/2020 18:00:34", "Waaaooooa xD", "Ene ler pu drmi sa?");
+            AddEvent2("03/08/2020 06:00:34", "lel", "ok");
+            AddEvent2("03/18/2020 16:00:34", "lol", "owkay");
+
+
+
         }
 
 
@@ -49,8 +54,31 @@ namespace NoPoverty.Views
         {
             DateTime dt = new DateTime();
             dt = DateTime.Parse(datetime);
-            Events.Add(dt, new List<EventModel>(AddEvents(name, desc)));
+                 Events.Add(dt, new List<EventModel>(AddEvents(name, desc)));
+           }
+        public void AddEvent2(string datetime, string name, string desc)
+        {
+            Task.Delay(5000).ContinueWith(_ =>
+            {
+                DateTime dt = new DateTime();
+                dt = DateTime.Parse(datetime);
+                // indexer - update later
+                if (!Events.ContainsKey(dt))
+                {
+                    Events[dt] = new ObservableCollection<EventModel>(AddEvents(name, desc));
+                }
+                else
+                {
+                    Task.Delay(3000).ContinueWith(t =>
+                    {
+                    // get observable collection later
+                    var currentEvents = Events[dt] as ObservableCollection<EventModel>;
+                        currentEvents.Add(new EventModel { Name = $"{name}", Description = $"{desc}" });
+                    });
+                }
+            }, TaskScheduler.FromCurrentSynchronizationContext());
         }
+
         public EventCollection Events { get; }
         public int Month { get; set; } = DateTime.Now.Month;
         public int Year { get; set; } = DateTime.Now.Year;
