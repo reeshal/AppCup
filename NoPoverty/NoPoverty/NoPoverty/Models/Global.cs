@@ -6,6 +6,7 @@ namespace NoPoverty.Models
 {
     public static class Global
     {
-        public static Users logger { get; set; }
+        public static Donor currentDonor { get; set; }
+        public static Institution currentRep { get; set; }
     }
 }

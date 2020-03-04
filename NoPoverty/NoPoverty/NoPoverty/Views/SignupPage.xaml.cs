@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 using NoPoverty.Models;
 using System.ComponentModel;
 
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Text.RegularExpressions;
+using NoPoverty.Helper;
 
 namespace NoPoverty.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignupPage : ContentPage
     {
-        readonly FirebaseService firebaseservice = new FirebaseService();
+        readonly FirebaseUsers fb = new FirebaseUsers();
         public SignupPage()
         {
             InitializeComponent();
@@ -38,12 +38,15 @@ namespace NoPoverty.Views
             stkTab1.IsVisible = false;
             stkTab2.IsVisible = true;
         }
+        private void ToggleIndicator() => StackIndicator.IsVisible = !StackIndicator.IsVisible;
+        private void ToggleIndicator2() => StackIndicator2.IsVisible = !StackIndicator2.IsVisible;
 
-        async void SignUpButtonClicked(object sender, EventArgs e)
+        //button add Donor
+        async void SignUpDonorButtonClicked(object sender, EventArgs e)
         {
             ToggleIndicator();
-
-            Users user = new Users()
+            string confirmPassword = ConfirmPassword.Text;
+            Donor user = new Donor()
             {
                 Username = UserUsername.Text,
                 Firstname = UserFname.Text,
@@ -51,15 +54,12 @@ namespace NoPoverty.Views
                 Address = UserAddress.Text,
                 Email = UserEmail.Text,
                 PhoneNo = UserContactNum.Text,
-                Gender = "",
-                Password = UserPassword.Text,
-                ConfirmPassword = ConfirmPassword.Text,
+                Password = UserPassword.Text             
             };
 
             //validation
             var signUpSucceeded = true;
-
-
+            
             if (string.IsNullOrWhiteSpace(user.Firstname) && string.IsNullOrWhiteSpace(user.Lastname))
             {
                 signUpSucceeded = false;
@@ -89,7 +89,7 @@ namespace NoPoverty.Views
                 await DisplayAlert("Username error", "Address cannot be blank or contain whitespaces", "OK");
                 UserUsername.Text = string.Empty;
             }
-            var person = await firebaseservice.GetUsers(user.Username);
+            var person = await fb.GetDonor(user.Username);
             if (person != null)
             {
                 await DisplayAlert("Error", "A person with that usernane already exist", "OK");
@@ -104,40 +104,27 @@ namespace NoPoverty.Views
                 await DisplayAlert("Weak Password", errormsg, "OK");
                 UserPassword.Text = string.Empty;
                 ConfirmPassword.Text = string.Empty;
-
-
             }
 
-            if (user.Password != user.ConfirmPassword)
+            if (user.Password != confirmPassword)
             {
                 signUpSucceeded = false;
                 await DisplayAlert("Passwords mismatch", "Passwords don't match", "OK");
                 ConfirmPassword.Text = string.Empty;
             }
-
-
-
+            
             if (signUpSucceeded)
             {
                 var rootpage = Navigation.NavigationStack.FirstOrDefault();
                 if (rootpage != null)
                 {
-                    await firebaseservice.AddUsers(UserUsername.Text, UserFname.Text, UserLname.Text, UserAddress.Text, UserEmail.Text, UserContactNum.Text, "", UserPassword.Text);
-                    UserUsername.Text = string.Empty;
-                    UserFname.Text = string.Empty;
-                    UserLname.Text = string.Empty;
-                    UserAddress.Text = string.Empty;
-                    UserEmail.Text = string.Empty;
-                    UserContactNum.Text = string.Empty;
-                    UserPassword.Text = string.Empty;
-                    ConfirmPassword.Text = string.Empty;
-
+                    await fb.AddDonor(UserUsername.Text, UserFname.Text, UserLname.Text, UserAddress.Text, UserEmail.Text, UserContactNum.Text, UserPassword.Text);
                     App.IsUserLoggedIn = true;
-                    Global.logger = user;
+                    Global.currentDonor = user;
+                    Global.currentRep = null;
                     // Navigation.InsertPageBefore(new MainPage(), Navigation.NavigationStack.FirstOrDefault());
                     // await Navigation.PopToRootAsync();
                     //await Navigation.PushAsync(new MainPage());  //back button works. bad code
-
                     Application.Current.MainPage = new MainPage();
 
                 }
@@ -150,9 +137,107 @@ namespace NoPoverty.Views
 
         }
 
-        private void ToggleIndicator() => StackIndicator.IsVisible = !StackIndicator.IsVisible;
+        //button add Representative
+        async void SignUpRepButtonClicked(object sender, EventArgs e)
+        {
+            ToggleIndicator();
+            string confirmPassword = RepresentativeConfirmPassword.Text;
+            Institution user = new Institution()
+            {
+                Username = RepresentativeUsername.Text,
+                Firstname = RepresentativeFname.Text,
+                Lastname = RepresentativeLname.Text,
+                Address = RepresentativeAddress.Text,
+                Email = RepresentativeEmail.Text,
+                PhoneNo = RepresentativePhoneNum.Text,
+                Password = RepresentativePassword.Text,
+                InstitutionName = institutionName.Text,
+                DietaryRequirements = DietaryReq.Text
+            };
 
-        private void ToggleIndicator2() => StackIndicator2.IsVisible = !StackIndicator2.IsVisible;
+            //validation
+            var signUpSucceeded = true;
+
+            
+            if (string.IsNullOrWhiteSpace(user.Firstname) && string.IsNullOrWhiteSpace(user.Lastname))
+            {
+                signUpSucceeded = false;
+                await DisplayAlert("Name error", "Name cannot be blank or contain whitespaces", "OK");
+                RepresentativeFname.Text = string.Empty;
+                RepresentativeLname.Text = string.Empty;
+            }
+
+            if (string.IsNullOrWhiteSpace(user.Address))
+            {
+                signUpSucceeded = false;
+                await DisplayAlert("Address error", "Address cannot be blank or contain whitespaces", "OK");
+                RepresentativeAddress.Text = string.Empty;
+            }
+
+            if (string.IsNullOrWhiteSpace(user.Email) && !user.Email.Contains("@"))
+            {
+                signUpSucceeded = false;
+                await DisplayAlert("Email format error", "Email must be in a typical email format", "OK");
+                RepresentativeEmail.Text = string.Empty;
+            }
+
+
+            if (string.IsNullOrWhiteSpace(user.Username))
+            {
+                signUpSucceeded = false;
+                await DisplayAlert("Username error", "Address cannot be blank or contain whitespaces", "OK");
+                RepresentativeUsername.Text = string.Empty;
+            }
+            var person = await fb.GetDonor(user.Username);
+            if (person != null)
+            {
+                await DisplayAlert("Error", "A person with that usernane already exist", "OK");
+                signUpSucceeded = false;
+                RepresentativeUsername.Text = string.Empty;
+            }
+
+            string errormsg;
+            if (!ValidatePassword(user.Password, out errormsg))
+            {
+                signUpSucceeded = false;
+                await DisplayAlert("Weak Password", errormsg, "OK");
+                RepresentativePassword.Text = string.Empty;
+                RepresentativeConfirmPassword.Text = string.Empty;
+            }
+
+            if (user.Password != confirmPassword)
+            {
+                signUpSucceeded = false;
+                await DisplayAlert("Passwords mismatch", "Passwords don't match", "OK");
+                RepresentativeConfirmPassword.Text = string.Empty;
+            }
+             
+            if (signUpSucceeded)
+            {
+                var rootpage = Navigation.NavigationStack.FirstOrDefault();
+                if (rootpage != null)
+                {
+                    await fb.AddRepresentative(RepresentativeUsername.Text, RepresentativeFname.Text, RepresentativeLname.Text, RepresentativeAddress.Text, RepresentativeEmail.Text, RepresentativePhoneNum.Text, RepresentativePassword.Text, institutionName.Text, DietaryReq.Text);
+
+                    App.IsUserLoggedIn = true;
+                    Global.currentRep = user;
+                    Global.currentDonor = null;
+                    // Navigation.InsertPageBefore(new MainPage(), Navigation.NavigationStack.FirstOrDefault());
+                    // await Navigation.PopToRootAsync();
+                    //await Navigation.PushAsync(new MainPage());  //back button works. bad code
+
+                    Application.Current.MainPage = new MainPage();
+
+                }
+                else
+                {
+                    await DisplayAlert("Failed", "Signup Error", "OK");
+                }
+            }
+            ToggleIndicator2();
+
+        }
+        
         private bool ValidatePassword(string password, out string ErrorMessage)
         {
             var input = password;
@@ -173,7 +258,7 @@ namespace NoPoverty.Views
             {
                 ErrorMessage = "Password should contain At least one lower case letter";
                 return false;
-            }
+            }/*
             else if (!hasUpperChar.IsMatch(input))
             {
                 ErrorMessage = "Password should contain At least one upper case letter";
@@ -194,7 +279,7 @@ namespace NoPoverty.Views
             {
                 ErrorMessage = "Password should contain At least one special case characters";
                 return false;
-            }
+            }*/
             else
             {
                 return true;

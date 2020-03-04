@@ -21,7 +21,7 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:Homepage/>
+                <views:MealsList/>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

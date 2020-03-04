@@ -53,18 +53,7 @@
 
             <!-- tab 1 container -->
             <StackLayout x:Name="stkTab1">
-                <Frame CornerRadius="100" 
-                   HeightRequest="125"
-                   WidthRequest="125"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Padding="0"
-                   IsClippedToBounds="True">
-                    <Image Source="uploadicon.png"   
-                       Margin="20,20,20,20">
-                    </Image>
-                </Frame>
-                <Label Text="Upload a profile picture" HorizontalTextAlignment="Center"></Label>
+                
                 <StackLayout Orientation="Horizontal" >
                     <Entry Placeholder="First Name" HeightRequest="80" HorizontalOptions="FillAndExpand" x:Name="UserFname"></Entry>
                     <Entry Placeholder="Last Name" HeightRequest="80" HorizontalOptions="FillAndExpand" x:Name="UserLname"></Entry>
@@ -86,16 +75,16 @@
                 </StackLayout>
 
                 <Button Text="Sign Up" 
-                HeightRequest="60" 
-                BackgroundColor="#5c91f2"
-                TextColor="White"
-                Font="18"
-                Clicked="SignUpButtonClicked"></Button>
+                            HeightRequest="60" 
+                            BackgroundColor="#5c91f2"
+                            TextColor="White"
+                            Font="18"
+                            Clicked="SignUpDonorButtonClicked"></Button>
                 <Label Text="Already a member? Login"
-               HorizontalTextAlignment="Center"
-               FontSize="16"
-               FontAttributes="Bold"
-               TextDecorations="Underline">
+                           HorizontalTextAlignment="Center"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextDecorations="Underline">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapToLogin"/>
                     </Label.GestureRecognizers>
@@ -130,13 +119,14 @@
                 <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="260">
 
                     <StackLayout Spacing="10" Padding="5">
-                        <Entry Placeholder="Institution Name" HeightRequest="80" x:Name="InstitutionName"></Entry>
+                        <Entry Placeholder="Institution Name" HeightRequest="80" x:Name="institutionName"></Entry>
 
                         <Label Text="Upload certification picture" HorizontalTextAlignment="Start"></Label>
+                        <!--
                         <Button Text="Upload"
                                 Style="{StaticResource FollowButton}"
                                 x:Name="AddStat"
-                                />
+                                /> -->
                         <Entry Placeholder="Detailed Dietary Requirements" HeightRequest="80" x:Name="DietaryReq"></Entry>
                         
                     </StackLayout>
@@ -150,7 +140,7 @@
                 BackgroundColor="#5c91f2"
                 TextColor="White"
                 Font="18"
-                Clicked="SignUpButtonClicked"></Button>
+                Clicked="SignUpRepButtonClicked"></Button>
                 <Label Text="Already a member? Login"
                HorizontalTextAlignment="Center"
                FontSize="16"

@@ -16,8 +16,8 @@ namespace NoPoverty.Views
         public MyProfile()
         {
             InitializeComponent();
-            UserName.Text = Global.logger.Username;
-            Location.Text = Global.logger.Address;
+            UserName.Text = "h";
+            Location.Text = "d";
         }
 
         private async void BtnEdit_Click(object sender, EventArgs e)

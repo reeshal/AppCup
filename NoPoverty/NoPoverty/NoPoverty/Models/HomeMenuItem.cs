@@ -6,11 +6,10 @@ namespace NoPoverty.Models
 {
     public enum MenuItemType
     {
-        Home,
-        MyProfile,
-        MyProductsDonated,
-        MyProductsReceived,
-        About
+        Meals,
+        Calendar,
+        UpdateProfile
+
     }
     public class HomeMenuItem
     {
