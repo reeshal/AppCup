@@ -1,4 +1,4 @@
-﻿using NoPoverty.Models;
+﻿using NoPoverty.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,16 +8,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace NoPoverty.Views
+namespace NoPoverty.Views.DonorView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MyProfile : ContentPage
+    public partial class InstitutionList : ContentPage
     {
-        public MyProfile()
+        public InstitutionList()
         {
             InitializeComponent();
-            UserName.Text = "h";
-            Location.Text = "d";
         }
+
     }
 }

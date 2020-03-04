@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NoPoverty.Helper;
 using NoPoverty.Models;
-using NoPoverty.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +13,8 @@ namespace NoPoverty.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        readonly FirebaseService firebaseservice = new FirebaseService();
+        readonly FirebaseUsers fe = new FirebaseUsers();
+
         public LoginPage()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace NoPoverty.Views
         {
             await Navigation.PushAsync(new SignupPage());
         }
-
+        /*
         async void Login_Clicked(object sender, EventArgs e)
         {
 
@@ -43,11 +44,11 @@ namespace NoPoverty.Views
                     if (Username == user.Username && Password == user.Password)
                     {
                         App.IsUserLoggedIn = true;
-                        Global.logger = user;
+                        //Global.logger = user;
                         // Navigation.InsertPageBefore(new MainPage(), this);
                         // await Navigation.PopAsync();
                         Application.Current.MainPage = new MainPage();
-
+                        //redirect to another =mainpaege
                     }
                     else
                     {
@@ -61,6 +62,7 @@ namespace NoPoverty.Views
                 }
             }
         }
-            
+        */
+
     }
 }

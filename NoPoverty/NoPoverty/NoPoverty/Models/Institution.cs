@@ -4,9 +4,9 @@ using System.Text;
 
 namespace NoPoverty.Models
 {
-    public class Users
+    public class Institution
     {
-        public Guid UserId { get; set; }
+        public Guid RepresentativeId { get; set; }
         public String Username { get; set; }
         public String Firstname { get; set; }
         public String Lastname { get; set; }
@@ -15,9 +15,10 @@ namespace NoPoverty.Models
         public String PhoneNo { get; set; }
         public String Gender { get; set; }
         public String Password { get; set; }
+        public String InstitutionName { get; set; }
+        public String DietaryRequirements { get; set; }
+        public String InstitutionDetails { get; set; }
 
-        //profile pic
-
-
+        //foto certificate
     }
 }

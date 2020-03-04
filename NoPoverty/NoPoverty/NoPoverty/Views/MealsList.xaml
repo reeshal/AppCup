@@ -3,13 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             NavigationPage.HasNavigationBar="False"  
              mc:Ignorable="d"
-             x:Class="NoPoverty.Views.BooksList"
-             x:Name="BrowseBooksPage">
+             x:Class="NoPoverty.Views.MealsList">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" Margin="10,5,10,10">
-            <ListView x:Name="ListOfBooks"
+            <ListView x:Name="ListOfMeals"
                       HasUnevenRows="true"
                       ItemSelected="OnItemSelected">
                 <ListView.ItemTemplate>
@@ -36,9 +34,8 @@
                                            VerticalOptions="Center"
                                            d:Text="Item descripton"/>
                                 </StackLayout>
-                                
                             </Grid>
-                            
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

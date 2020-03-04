@@ -17,16 +17,17 @@ namespace NoPoverty.Views
         public MenuPage()
         {
             InitializeComponent();
-            Username.Text = Global.logger.Username;
-            Email.Text = Global.logger.Email;
+            //Username.Text = Global.logger.Username;
+            //Email.Text = Global.logger.Email;
+
+            Username.Text = Global.currentRep.Username;
+            Email.Text = Global.currentRep.InstitutionName;
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Home, Title="Home" },
-                new HomeMenuItem {Id = MenuItemType.MyProfile, Title="My Profile" },
-                new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="Products Donated" },
-                new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="Products Picked" },
-                new HomeMenuItem {Id = MenuItemType.MyProductsDonated, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Meals, Title="Meals" },
+                new HomeMenuItem {Id = MenuItemType.Calendar, Title="Calendar" },
+                new HomeMenuItem {Id = MenuItemType.UpdateProfile, Title="Update Profile" },
             }; 
 
             ListViewMenu.ItemsSource = menuItems;
@@ -45,7 +46,7 @@ namespace NoPoverty.Views
         {
 
             App.IsUserLoggedIn = false;
-            Global.logger = null;
+            Global.currentRep = null;
             Application.Current.MainPage = new NavigationPage(new LoginPage());
 
         }

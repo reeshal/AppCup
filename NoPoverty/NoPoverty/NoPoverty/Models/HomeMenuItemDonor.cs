@@ -4,16 +4,15 @@ using System.Text;
 
 namespace NoPoverty.Models
 {
-    public enum MenuItemType
+    public enum MenuItemTypeDonor
     {
-        Meals,
-        Calendar,
+        Home,
+        MyDonation,
         UpdateProfile
-
     }
-    public class HomeMenuItem
+    public class HomeMenuItemDonor
     {
-        public MenuItemType Id { get; set; }
+        public MenuItemTypeDonor Id { get; set; }
 
         public string Title { get; set; }
     }
