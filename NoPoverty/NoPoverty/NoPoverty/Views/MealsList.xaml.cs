@@ -5,41 +5,43 @@ using System.Text;
 using System.Threading.Tasks;
 using NoPoverty.Helper;
 using NoPoverty.Models;
+using NoPoverty.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace NoPoverty.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StationeryList : ContentPage
+    public partial class MealsList : ContentPage
     {
-        readonly FirebaseHelper firebaseHelper = new FirebaseHelper();
-        public StationeryList()
+        readonly FirebaseFood firebaseHelper = new FirebaseFood();
+
+        public MealsList()
         {
             InitializeComponent();
         }
-        private async Task FetchAllStationery()
+        private async Task FetchAllMeals()
         {
-            var allStat = await firebaseHelper.GetAllStationery();
+            var allBooks = await firebaseHelper.GetAllMeal();
 
-            ListOfStationery.ItemsSource = allStat;
+            ListOfMeals.ItemsSource = allBooks;
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            await FetchAllStationery();
+            await FetchAllMeals();
         }
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var Stat = args.SelectedItem as Stationery;
-            if (Stat == null)
+            var meal = args.SelectedItem as Meal;
+            if (meal == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetails(Stat));
+            await Navigation.PushAsync(new MealDetails(meal));
 
             // Manually deselect item.
-            ListOfStationery.SelectedItem = null;
+            ListOfMeals.SelectedItem = null;
         }
     }
 }

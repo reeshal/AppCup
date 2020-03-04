@@ -13,7 +13,7 @@ namespace NoPoverty.Models
         public String Address { get; set; }
         public String Email { get; set; }
         public String PhoneNo { get; set; }
-        public String Gender { get; set; }
+
         public String Password { get; set; }
     }
 }

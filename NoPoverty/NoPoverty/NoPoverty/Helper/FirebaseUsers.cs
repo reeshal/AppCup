@@ -51,17 +51,17 @@ namespace NoPoverty.Helper
                 }).ToList();
         }
 
-        public async Task AddDonor(string username, string firstname, string lastname, string address, string email, string phoneno, string gender, string password)
+        public async Task AddDonor(string username, string firstname, string lastname, string address, string email, string phoneno, string password)
         {
             await firebase
                 .Child(Child1)
-                .PostAsync(new Donor() { DonorId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Gender = gender, Password = password });
+                .PostAsync(new Donor() { DonorId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Password = password });
         }
-        public async Task AddRepresentative(string username, string firstname, string lastname, string address, string email, string phoneno, string gender, string password, string institutionName, string dietaryReq)
+        public async Task AddRepresentative(string username, string firstname, string lastname, string address, string email, string phoneno, string password, string institutionName, string dietaryReq)
         {
             await firebase
                 .Child(Child2)
-                .PostAsync(new Institution() { RepresentativeId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Gender = gender, Password = password, InstitutionName=institutionName, DietaryRequirements=dietaryReq});
+                .PostAsync(new Institution() { RepresentativeId = Guid.NewGuid(), Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Password = password, InstitutionName=institutionName, DietaryRequirements=dietaryReq});
         }
 
         public async Task<Donor> GetDonor(string username)

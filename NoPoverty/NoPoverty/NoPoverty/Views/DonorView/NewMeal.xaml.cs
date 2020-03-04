@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace NoPoverty.Views
+namespace NoPoverty.Views.DonorView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FoodList : ContentPage
+    public partial class NewMeal : ContentPage
     {
-        public FoodList()
+        public NewMeal()
         {
             InitializeComponent();
         }
