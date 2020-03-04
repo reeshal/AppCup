@@ -39,7 +39,7 @@ namespace NoPoverty.Views
                     return;
 
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-                await RootPage.NavigateFromMenu(id);
+                await RootPage.NavigateFromMenu(id,"Institution");
             };
         }
         void OnLogout_Clicked(object sender, EventArgs e)
