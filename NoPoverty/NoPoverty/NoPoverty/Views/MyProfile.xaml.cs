@@ -19,5 +19,12 @@ namespace NoPoverty.Views
             UserName.Text = Global.logger.Username;
             Location.Text = Global.logger.Address;
         }
+
+        private async void BtnEdit_Click(object sender, EventArgs e)
+        {
+            //await Navigation.PushAsync(new RequestItem());
+            //await Navigation.PushAsync(new NavigationPage(new RequestItem()));
+            await Navigation.PushModalAsync(new NavigationPage(new EditProfile()));
+        }
     }
 }

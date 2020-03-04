@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:BEHAVIOURS="clr-namespace:NoPoverty.Behaviours"
+             mc:Ignorable="d"
+             x:Class="NoPoverty.Views.EditProfile"
+             Title = "Edit Profile">
+    <!--.HasNavigationBar="False"-->
+
+        <ContentPage.Content>
+        <ScrollView>
+
+            <StackLayout>
+
+            <Label Text="Representative Information"/>
+            <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="640">
+
+                <StackLayout Spacing="10" Padding="5">
+                    <StackLayout Orientation="Horizontal" >
+                            <Label Text="First Name" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                            <Label Text="Last Name" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                    </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                            <Label Text="test" x:Name="repfname" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="16"/>
+                            <Label Text="test" x:Name="replname" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="16"/>
+                        </StackLayout>
+
+                        <Label Text="Address" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                        <Entry Placeholder="Address" HeightRequest="40" x:Name="RepresentativeAddress"></Entry>
+                    
+                        <Label Text="Email" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                        <Entry Placeholder="Email" HeightRequest="40" x:Name="RepresentativeEmail" Keyboard="Email"></Entry>
+                    
+                        <Label Text="Contact Number" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                        <Entry Placeholder="Contact Number" HeightRequest="40" x:Name="RepresentativePhoneNum" Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <BEHAVIOURS:PhoneMask Mask="(XXX) XXXX-XXXX" />
+                        </Entry.Behaviors>
+                    </Entry>
+                    
+                        <Label Text="Username" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                        <Entry Placeholder="Username" HeightRequest="40" x:Name="RepresentativeUsername"></Entry>
+
+                        <Label Text="Passowrd" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                        <Entry Placeholder="Password" HeightRequest="40" x:Name="RepresentativePassword"></Entry>
+
+                        <Label Text="Confirm Password" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                        <Entry Placeholder="Confirm Password" HeightRequest="40" Margin="0,0,0,15" x:Name="RepresentativeConfirmPassword"></Entry>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="Institution Information"/>
+            <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="260">
+
+                <StackLayout Spacing="10" Padding="5">
+                        <Label Text="Institution Name" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                        <Entry Placeholder="Institution Name" HeightRequest="40" x:Name="InstitutionName"></Entry>
+
+                    <Label Text="Change certification picture" HorizontalTextAlignment="Start"></Label>
+                    <Button Text="Upload"
+                            Style="{StaticResource FollowButton}"
+                            x:Name="AddStat"
+                            />
+
+                    <Label Text="Change Dietary requirements" HeightRequest="80" HorizontalOptions="FillAndExpand" FontSize="20" FontAttributes="Bold"/>
+                    <Entry Placeholder="Detailed Dietary Requirements" HeightRequest="40" x:Name="DietaryReq"></Entry>
+
+                </StackLayout>
+            </Frame>
+            <StackLayout x:Name="StackIndicator2" Margin="0,5" IsVisible="False" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Label>PLEASE WAIT WHILE WE UPDATE YOUR ACCOUNT</Label>
+            </StackLayout>
+
+            <Button Text="Update" 
+            HeightRequest="60" 
+            BackgroundColor="#5c91f2"
+            TextColor="White"
+            Font="18"
+            Clicked="Button_Clicked"></Button>
+            
+        </StackLayout>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>
