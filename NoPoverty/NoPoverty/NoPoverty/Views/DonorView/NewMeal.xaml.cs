@@ -1,6 +1,7 @@
 ﻿using NoPoverty.Helper;
 using NoPoverty.Models;
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,9 @@ using Xamarin.Forms.Xaml;
 
 namespace NoPoverty.Views.DonorView
 {
+    
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    [DesignTimeVisible(true)]
     public partial class NewMeal : ContentPage
     {
         FirebaseFood ff = new FirebaseFood();
@@ -34,6 +37,11 @@ namespace NoPoverty.Views.DonorView
         private void ViewCert(object sender, EventArgs e)
         {
             
+        }
+
+        private void btndate(object sender, EventArgs e)
+        {
+
         }
     }
 }

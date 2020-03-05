@@ -3,44 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-              xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
              xmlns:local="clr-namespace:NoPoverty.Views"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.HasNavigationBar="False"
              mc:Ignorable="d"
-             x:Class="NoPoverty.Views.DonorView.NewMeal">
+             x:Class="NoPoverty.Views.Calendar">
     <ContentPage.BindingContext>
         <local:MainPageViewModel />
     </ContentPage.BindingContext>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="View certificate"
-                 Order="Primary"
-                 Priority="0"
-                 Clicked="ViewCert"/>
-    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="10,20,10,10" >
-                <Frame CornerRadius="100" 
-                   HeightRequest="125"
-                   WidthRequest="125"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Padding="0"
-                   IsClippedToBounds="True">
-                    <Image Source="uploadicon.png"   
-                       Margin="20,20,20,20">
-                    </Image>
-                </Frame>
-                <Label Text="Upload a picture of your food" HorizontalTextAlignment="Center"></Label>
-                <Entry Placeholder="Title of Meal" HeightRequest="80" x:Name="FoodTitle"></Entry>
-                <Entry Placeholder="Description" HeightRequest="80" x:Name="FoodDesc"></Entry>
-                <Entry Placeholder="Calorie/meal" HeightRequest="80" x:Name="FoodCalo"></Entry>
-                <Entry Placeholder="Healthiness" HeightRequest="80" x:Name="FoodHealthiness"></Entry>
-                <Entry Placeholder="Quantity" HeightRequest="80" x:Name="FoodQty"></Entry>
-
-                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="10,20,10,10" >
-                    <!--add calender here!-->
-                    
-    
         <controls:Calendar
         Padding="10,0"
         VerticalOptions="FillAndExpand"
@@ -130,17 +102,5 @@
         DayViewCornerRadius="3"
         DaysTitleHeight="40"-->
 
-                    <Label Text="Add the date/time to book a slot (in the format shown)" HeightRequest="60" HorizontalOptions="FillAndExpand" FontSize="16"/>
-                    <Entry Placeholder="e.g: 03/08/2020 08:00:34" HeightRequest="45" x:Name="AddCalender"></Entry>
-
-                </StackLayout>
-
-                <Button Text="Upload Meal" 
-                                Style="{StaticResource FollowButton}"
-                                Clicked="btnaddMeal"/>
-            </StackLayout>
-
-            
-        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

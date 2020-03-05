@@ -50,8 +50,27 @@ namespace NoPoverty.Helper
                     Calorie = item.Object.Calorie,
                     Healthiness = item.Object.Healthiness,
                     Quantity = item.Object.Quantity,
-                    //ImageUrl = item.Object.ImageUrl
+                    ImageUrl = item.Object.ImageUrl
                 }).ToList();
         }
+
+        //public async Task<List<Meal>> GetMealsByDonor(string donorusername)
+        //{
+        //    return (await firebase
+        //        .Child(Child3)
+        //        .Child("Username")
+        //        .OrderByKey()
+        //        .EqualTo(() => donorusername)
+        //        .OnceAsync<Meal>()).Select(item => new Meal
+        //        {
+        //            Title = item.Object.Title,
+        //            Description = item.Object.Description,
+        //            Donator = item.Object.Donator,
+        //            Calorie = item.Object.Calorie,
+        //            Healthiness = item.Object.Healthiness,
+        //            Quantity = item.Object.Quantity,
+        //            //ImageUrl = item.Object.ImageUrl
+        //        }).ToList();
+        //}
     }
 }

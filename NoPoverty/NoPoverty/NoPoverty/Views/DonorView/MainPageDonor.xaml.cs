@@ -28,7 +28,7 @@ namespace NoPoverty.Views.DonorView
                 switch (id)
                 {
                     case (int)MenuItemTypeDonor.MyDonation:
-                        //DonorMenuPages.Add(id, new NavigationPage(new MyDonations()));
+                        DonorMenuPages.Add(id, new NavigationPage(new MyDonation()));
                         break;
 
                     case (int)MenuItemTypeDonor.UpdateProfile:
