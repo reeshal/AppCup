@@ -39,7 +39,7 @@
                             FontSize="Small" />
                             <StackLayout Margin="15,0,0,0">
                                 <Label
-                            Text="{Binding Name}"
+                            Text="{Binding DonorUserName}"
                             FontAttributes="Bold"
                             FontSize="Medium" />
                                 <Label
