@@ -1,4 +1,5 @@
-﻿using NoPoverty.Models;
+﻿using NoPoverty.Helper;
+using NoPoverty.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace NoPoverty.Views
     public partial class MealDetails : ContentPage
     {
         Meal currentmeal;
+        Donor contactDonor;
+        string donorname = "";
+        FirebaseUsers fu = new FirebaseUsers();
         public MealDetails(Meal m)
         {
             InitializeComponent();
@@ -24,12 +28,16 @@ namespace NoPoverty.Views
             qty.Text = m.Quantity;
             healthiness.Text = m.Healthiness;
             calorie.Text = m.Calorie;
+
+            donorname = m.Donator;
         }
+        
         private async void BtnReq_Click(object sender, EventArgs e)
         {
+            contactDonor = await fu.GetDonor(donorname);
             //await Navigation.PushAsync(new RequestItem());
             //await Navigation.PushAsync(new NavigationPage(new RequestItem()));
-            await Navigation.PushModalAsync(new NavigationPage(new RequestItem()));
+            await Navigation.PushModalAsync(new NavigationPage(new RequestItem(contactDonor)));
         }
     }
 }

@@ -28,11 +28,11 @@ namespace NoPoverty.Helper
                     //ImageUrl = item.Object.ImageUrl
                 }).ToList();
         }
-        public async Task AddMeal(string title, string description, string donator, string calorie, string healthiness, string qty, string imgurl )
+        public async Task AddMeal(string title, string description, string donator, string calorie, string healthiness, string qty, string inst, string imgurl )
         {
             await firebase
                 .Child(Child3)
-                .PostAsync(new Meal() { MealId = Guid.NewGuid(), Title=title, Description=description,Donator=donator, Calorie=calorie,Healthiness=healthiness, Quantity=qty,ImageUrl=""});
+                .PostAsync(new Meal() { MealId = Guid.NewGuid(), Title=title, Description=description,Donator=donator, Calorie=calorie,Healthiness=healthiness, Quantity=qty,InstitutionName=inst,ImageUrl=""});
         }
 
         public async Task<List<Meal>> GetMealsByInstitution(string institutionName)

@@ -130,8 +130,10 @@
         DayViewCornerRadius="3"
         DaysTitleHeight="40"-->
 
-                    <Label Text="Add the date/time to book a slot (in the format shown)" HeightRequest="60" HorizontalOptions="FillAndExpand" FontSize="16"/>
-                    <Entry Placeholder="e.g: 03/08/2020 08:00:34" HeightRequest="45" x:Name="AddCalender"></Entry>
+                    <Label Text="Add the date/time to book a slot (in the format shown)" HeightRequest="40" HorizontalOptions="FillAndExpand" FontSize="16"/>
+                    <Entry Placeholder="e.g: 03/08/2020 08:00:34" HeightRequest="45" x:Name="DateTimeInput"></Entry>
+                    <Label Text="Any relevant information (Details)" HeightRequest="40" HorizontalOptions="FillAndExpand" FontSize="16"/>
+                    <Entry Placeholder="e.g: Meet me near the Supermarket" HeightRequest="45" x:Name="Description"></Entry>
 
                 </StackLayout>
 

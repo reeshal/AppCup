@@ -11,6 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModels\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <None Remove="ViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="LoginPage.cs" />
   </ItemGroup>
 
@@ -73,9 +79,5 @@
     <Compile Update="Views\MealsList.xaml.cs">
       <DependentUpon>MealsList.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 </Project>

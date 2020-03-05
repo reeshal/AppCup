@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
              xmlns:local="clr-namespace:NoPoverty.Views"
-             NavigationPage.HasBackButton="False"
-             NavigationPage.HasNavigationBar="False"
+             
              mc:Ignorable="d"
              x:Class="NoPoverty.Views.Calendar">
     <ContentPage.BindingContext>
@@ -40,7 +39,7 @@
                             FontSize="Small" />
                             <StackLayout Margin="15,0,0,0">
                                 <Label
-                            Text="{Binding Name}"
+                            Text="{Binding DonorUserName}"
                             FontAttributes="Bold"
                             FontSize="Medium" />
                                 <Label

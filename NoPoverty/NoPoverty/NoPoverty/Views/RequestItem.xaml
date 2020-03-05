@@ -20,7 +20,7 @@
                         Source="call.png"/>
                 <StackLayout Padding="5,0,10,0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
                     <Label Text="Call number:" />
-                        <Entry  x:Name="PhoneNumber" Placeholder="(222) 222-2222" />
+                        <Entry  x:Name="PhoneNumber" />
                     <Button x:Name="BtnCall"  Text="Call"  BorderRadius="10" Clicked="BtnCall_Click"/>
                 </StackLayout>
             </StackLayout>
@@ -45,7 +45,7 @@
                         Source="email.png"/>
                 <StackLayout Padding="5,10,10,0" Orientation="Vertical" HorizontalOptions="FillAndExpand">
                     <Entry  x:Name="Email" Placeholder="name@askxammy.com" />
-                    <Entry  x:Name="Subject" Placeholder="Ref:" />
+                    <Entry  x:Name="Subject" Placeholder="Ref: Request for Item" />
                     <Entry  x:Name="Body" Placeholder="Compose your Email" HeightRequest="50"/>
                     <Button x:Name="BtnSendEmail"  Text="Send Email" BorderRadius="10" Clicked="BtnEmail_Click"/>
                 </StackLayout>
