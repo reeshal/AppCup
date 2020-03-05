@@ -27,7 +27,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Views\Calendar.xaml">
-      <Generator>MSBuild:Compile</Generator>
+
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DonorView\InstitutionList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -36,6 +38,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DonorView\MenuPageDonor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DonorView\MyDonation.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DonorView\NewMeal.xaml">

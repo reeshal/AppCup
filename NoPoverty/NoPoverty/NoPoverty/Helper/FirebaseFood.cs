@@ -25,19 +25,18 @@ namespace NoPoverty.Helper
                     Calorie = item.Object.Calorie,
                     Healthiness = item.Object.Healthiness,
                     Quantity = item.Object.Quantity,
-                    InstitutionName= item.Object.InstitutionName
                     //ImageUrl = item.Object.ImageUrl
                 }).ToList();
         }
-        public async Task AddMeal(string title, string description, string donator, string calorie, string healthiness, string qty, string insname,string imgurl )
+        public async Task AddMeal(string title, string description, string donator, string calorie, string healthiness, string qty, string imgurl )
         {
             await firebase
                 .Child(Child3)
-                .PostAsync(new Meal() { MealId = Guid.NewGuid(), Title=title, Description=description,Donator=donator, Calorie=calorie,Healthiness=healthiness, InstitutionName=insname, Quantity=qty,ImageUrl=""});
+                .PostAsync(new Meal() { MealId = Guid.NewGuid(), Title=title, Description=description,Donator=donator, Calorie=calorie,Healthiness=healthiness, Quantity=qty,ImageUrl=""});
         }
-        /*
+
         public async Task<List<Meal>> GetMealsByInstitution(string institutionName)
-        {/*
+        {
             return (await firebase
                 .Child(Child3)
                 .Child("InstitutionName")
@@ -51,22 +50,27 @@ namespace NoPoverty.Helper
                     Calorie = item.Object.Calorie,
                     Healthiness = item.Object.Healthiness,
                     Quantity = item.Object.Quantity,
-                    //ImageUrl = item.Object.ImageUrl
-                }).ToList();*/
-                
-        /*
-            return (await firebase
-            .Child(Child3)
-            .OnceAsync<Meal>()).Select(item => new Meal
-            {
-                Title = item.Object.Title,
-                Description = item.Object.Description,
-                Donator = item.Object.Donator,
-                Calorie = item.Object.Calorie,
-                Healthiness = item.Object.Healthiness,
-                Quantity = item.Object.Quantity,
-                //ImageUrl = item.Object.ImageUrl
-            }).FirstOrDefault(a => a.item.InstitutionName == institutionName).ToList();
-        }*/
+                    ImageUrl = item.Object.ImageUrl
+                }).ToList();
+        }
+
+        //public async Task<List<Meal>> GetMealsByDonor(string donorusername)
+        //{
+        //    return (await firebase
+        //        .Child(Child3)
+        //        .Child("Username")
+        //        .OrderByKey()
+        //        .EqualTo(() => donorusername)
+        //        .OnceAsync<Meal>()).Select(item => new Meal
+        //        {
+        //            Title = item.Object.Title,
+        //            Description = item.Object.Description,
+        //            Donator = item.Object.Donator,
+        //            Calorie = item.Object.Calorie,
+        //            Healthiness = item.Object.Healthiness,
+        //            Quantity = item.Object.Quantity,
+        //            //ImageUrl = item.Object.ImageUrl
+        //        }).ToList();
+        //}
     }
 }

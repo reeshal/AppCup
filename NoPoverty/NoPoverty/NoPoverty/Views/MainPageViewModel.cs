@@ -30,10 +30,6 @@ namespace NoPoverty.Views
             AddEvent2("03/08/2020 18:00:34", "Waaaooooa xD", "Ene ler pu drmi sa?");
             AddEvent2("03/08/2020 06:00:34", "lel", "ok");
             AddEvent2("03/18/2020 16:00:34", "lol", "owkay");
-            AddEvent2("04/08/2020 08:00:34", "Wa xD", "Ene ler pu leV sa?");
-            AddEvent2("04/08/2020 18:00:34", "Waaaooooa xD", "Ene ler pu drmi sa?");
-            AddEvent2("09/08/2020 06:00:34", "lel", "ok");
-            AddEvent2("09/18/2020 16:00:34", "lol", "owkay");
             DeleteEvent("03/08/2020 18:00:34", "Waaaooooa xD");
 
 
@@ -47,16 +43,25 @@ namespace NoPoverty.Views
 
 
 
-        protected IEnumerable<EventModel> AddEvents(string datetime,string name, string desc)
+
+        protected IEnumerable<EventModel> AddEvents(string datetime, string name, string desc)
         {
-            return Enumerable.Range(1,1).Select(x => new EventModel
+            return Enumerable.Range(1, 1).Select(x => new EventModel
             {
-                DateTime=$"{datetime}",
+                DateTime = $"{datetime}",
+
                 Name = $"{name}",
                 Description = $"{desc}"
             });
         }
-       
+        public void AddEvent(string datetime, string name, string desc)
+        {
+            DateTime dt = new DateTime();
+            dt = DateTime.Parse(datetime);
+
+            Events.Add(dt, new List<EventModel>(AddEvents(dt.ToShortTimeString(), name, desc)));
+        }
+
         public void AddEvent2(string datetime, string name, string desc)
         {
             Task.Delay(5000).ContinueWith(_ =>
@@ -66,21 +71,27 @@ namespace NoPoverty.Views
                 // indexer - update later
                 if (!Events.ContainsKey(dt))
                 {
-                    Events[dt] = new ObservableCollection<EventModel>(AddEvents(dt.ToShortTimeString(),name, desc));
+
+                    Events[dt] = new ObservableCollection<EventModel>(AddEvents(dt.ToShortTimeString(), name, desc));
+
                 }
                 else
                 {
                     Task.Delay(3000).ContinueWith(t =>
                     {
-                    // get observable collection later
-                    var currentEvents = Events[dt] as ObservableCollection<EventModel>;
-                        currentEvents.Add(new EventModel { DateTime = $"{dt.ToShortTimeString()}",Name = $"{name}", Description = $"{desc}" });
+
+                        // get observable collection later
+                        var currentEvents = Events[dt] as ObservableCollection<EventModel>;
+                        currentEvents.Add(new EventModel { DateTime = $"{dt.ToShortTimeString()}", Name = $"{name}", Description = $"{desc}" });
+
                     });
                 }
             }, TaskScheduler.FromCurrentSynchronizationContext());
 
         }
-        public void DeleteEvent(string datetime,string name)
+
+        public void DeleteEvent(string datetime, string name)
+
         {
             Task.Delay(5000).ContinueWith(_ =>
             {

@@ -32,7 +32,7 @@
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand"
                     Padding="15,0,0,0">
-                        
+
                         <StackLayout Orientation="Horizontal" >
                             <Label
                             Text="{Binding DateTime}"
@@ -48,13 +48,63 @@
                         FontSize="Small"
                         LineBreakMode="WordWrap" />
                             </StackLayout>
-                            
+
+                            <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
+
                         </StackLayout>
-                        <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
+
                     </StackLayout>
                 </DataTemplate>
             </controls:Calendar.EventTemplate>
         </controls:Calendar>
-       
-</ContentPage.Content>
+        <!--Styling    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="daysLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Italic" />
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+            <Style x:Key="daysTitleLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="20" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+
+
+        <!-- Swipe handling
+    
+        DisableSwipeDetection="False"
+    
+        SwipeLeftCommand="{Binding SwipeLeftCommand}"
+        SwipeRightCommand="{Binding SwipeRightCommand}"
+        SwipeUpCommand="{Binding SwipeUpCommand}"
+    
+        SwipeUpToHideEnabled="False"
+        SwipeToChangeMonthEnabled="False"-->
+
+        <!-- Customizations
+    
+        DaysLabelStyle="{StaticResource daysLabelStyle}"
+        DaysTitleLabelStyle="{StaticResource daysTitleLabelStyle}"
+        MonthLabelColor="Red"
+        YearLabelColor="Blue"
+        SelectedDateColor="Red"
+        SelectedDayBackgroundColor="DarkCyan"
+        EventIndicatorColor="Red"
+        EventIndicatorSelectedColor="White"
+        ArrowsColor="DarkCyan"
+        DaysTitleColor="Orange"
+        SelectedDayTextColor="Cyan"
+        DeselectedDayTextColor="Blue"
+        OtherMonthDayColor="Gray"
+        TodayOutlineColor="Blue"
+        TodayFillColor="Silver"
+        DayViewSize="40"
+        DayViewCornerRadius="3"
+        DaysTitleHeight="40"-->
+
+
+    </ContentPage.Content>
+
 </ContentPage>
