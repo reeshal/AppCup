@@ -22,10 +22,11 @@ namespace NoPoverty.Views
         }
         private async Task FetchAllMeals()
         {
-            var allBooks = await firebaseHelper.GetMealsByInstitution(Global.currentRep.InstitutionName);
+            var allmeals = await firebaseHelper.GetAllMeal();
             //var allBooks = await firebaseHelper.GetAllMeal();
-
-            ListOfMeals.ItemsSource = allBooks;
+            //ListView sortedmeals = new ListView { ItemsSource = allmeals.Where(w => w.InstitutionName.Contains(Global.currentRep.InstitutionName)) };
+            ListOfMeals.ItemsSource = allmeals;
+           // ListOfMeals.ItemsSource =  (ListView)sortedmeals;
         }
         protected override async void OnAppearing()
         {

@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              Title="Login "
              x:Class="NoPoverty.Views.LoginPage">
+    <ScrollView>
     <StackLayout HorizontalOptions="FillAndExpand"
                  Margin="15"
                  VerticalOptions="StartAndExpand">
@@ -85,6 +86,7 @@
                 <TapGestureRecognizer Tapped="TapToSignup"/>
             </Label.GestureRecognizers>
         </Label>
-
+        
     </StackLayout>
+    </ScrollView>
 </ContentPage>

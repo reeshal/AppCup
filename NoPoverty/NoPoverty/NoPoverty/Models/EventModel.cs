@@ -1,4 +1,8 @@
-﻿namespace NoPoverty.Views
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace NoPoverty.Models
 {
     public class EventModel
     {

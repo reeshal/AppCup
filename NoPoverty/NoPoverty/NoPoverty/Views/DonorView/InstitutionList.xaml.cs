@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using NoPoverty.Helper;
 using NoPoverty.Models;
 using NoPoverty.Views.DonorView;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using NoPoverty.Views.DonorView;
+
 
 
 namespace NoPoverty.Views.DonorView

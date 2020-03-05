@@ -14,5 +14,7 @@ namespace NoPoverty.Models
         public string Healthiness { get; set; }
         public string Quantity { get; set; }
         public string ImageUrl { get; set; }
+        public string InstitutionName { get; set; }
+
     }
 }

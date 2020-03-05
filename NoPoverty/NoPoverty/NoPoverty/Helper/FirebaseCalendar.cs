@@ -1,6 +1,7 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
-using NoPoverty.Views;
+using NoPoverty.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -34,6 +35,7 @@ namespace NoPoverty.Helper
             await firebase
                 .Child(Child4)
                 .PostAsync(new EventModel() { DateTime = datetime, DonorUserName = donorusername, Description = description, InstName = instname});
+
         }
 
         public async Task<EventModel> GetCalenderByInstitution(string instname)
