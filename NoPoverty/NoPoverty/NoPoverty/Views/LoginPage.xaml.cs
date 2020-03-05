@@ -98,11 +98,13 @@ namespace NoPoverty.Views
         private void Donor_clicked(object sender, EventArgs e)
         {
             LoginUser = "Donor";
+            checkboxrep.IsChecked = false;
         }
 
         private void Rep_clicked(object sender, CheckedChangedEventArgs e)
         {
             LoginUser = "Institution";
+            checkboxdonor.IsChecked = false;
         }
 
     }

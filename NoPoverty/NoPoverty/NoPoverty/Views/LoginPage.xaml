@@ -48,7 +48,7 @@
                            FontSize="16"
                            FontAttributes="Bold"
                            ></Label>
-                <CheckBox CheckedChanged="Donor_clicked" />
+                <CheckBox x:Name="checkboxdonor" CheckedChanged="Donor_clicked" />
 
             </StackLayout>
 
@@ -61,7 +61,7 @@
                            FontSize="16"
                            FontAttributes="Bold"
                            ></Label>
-                <CheckBox CheckedChanged="Rep_clicked" />
+                <CheckBox x:Name="checkboxrep" CheckedChanged="Rep_clicked" />
 
             </StackLayout>
         </Grid>
