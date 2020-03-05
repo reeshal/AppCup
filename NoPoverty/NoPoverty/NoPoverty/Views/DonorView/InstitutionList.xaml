@@ -6,10 +6,40 @@
              mc:Ignorable="d"
              x:Class="NoPoverty.Views.DonorView.InstitutionList">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="White" Margin="10,5,10,10">
+            <ListView x:Name="ListOfInst"
+                      HasUnevenRows="true"
+                      ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="0,10,0,5" BackgroundColor="#fbf8f6"  >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="40" />
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding InstitutionName}" 
+                                           VerticalOptions="Center" 
+                                           HorizontalOptions="CenterAndExpand"
+                                           TextColor="Black" 
+                                           FontSize="22"
+                                           Grid.Row="0"/>
+                                <Label Text="{Binding InstitutionDetails}"
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="StartAndExpand"
+                                       Grid.Row="1"/>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="2" Margin="10,0,10,0">
+                                    <Button Text="Donate" Style="{StaticResource FollowButton}" HorizontalOptions="EndAndExpand"/>
+                                    <Button Text="View Certificate" Style="{StaticResource FollowButton}" HorizontalOptions="End"/>
+                                </StackLayout>
+
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

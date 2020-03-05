@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using NoPoverty.Helper;
+using NoPoverty.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,10 +14,35 @@ namespace NoPoverty.Views.DonorView
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InstitutionList : ContentPage
     {
+        readonly FirebaseUsers fu = new FirebaseUsers();
         public InstitutionList()
         {
             InitializeComponent();
         }
+        private async Task FetchAllInstitutions()
+        {
+            var allIns = await fu.GetAllRepresentatives();
 
+            ListOfInst.ItemsSource = allIns;
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await FetchAllInstitutions();
+        }
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            
+            var inst= args.SelectedItem as Institution;
+            if (inst == null)
+                return;
+                /*
+            await Navigation.PushAsync(new ItemDetails(Book));
+
+            // Manually deselect item.
+            ListOfInst.SelectedItem = null;
+            */
+        }
     }
 }
