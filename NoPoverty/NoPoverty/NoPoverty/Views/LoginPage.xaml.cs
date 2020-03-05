@@ -16,6 +16,8 @@ namespace NoPoverty.Views
     {
         readonly FirebaseUsers fe = new FirebaseUsers();
         public static String LoginUser = "";
+
+        public new bool IsBusy { get; set; }
         public LoginPage()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace NoPoverty.Views
         }
         async void Login_Clicked(object sender, EventArgs e)
         {
-
+            IsBusy = true;
             string Username = LoginUsername.Text;
             string Password = LoginPassword.Text;
 
@@ -50,6 +52,8 @@ namespace NoPoverty.Views
                             // Navigation.InsertPageBefore(new MainPage(), this);
                             // await Navigation.PopAsync();
                             Application.Current.MainPage = new MainPageDonor();
+                            IsBusy = false;
+
                             //redirect to another =mainpaege
                         }
                         else

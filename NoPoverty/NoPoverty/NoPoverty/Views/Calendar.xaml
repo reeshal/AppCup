@@ -32,7 +32,7 @@
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand"
                     Padding="15,0,0,0">
-                        
+
                         <StackLayout Orientation="Horizontal" >
                             <Label
                             Text="{Binding DateTime}"
@@ -48,9 +48,11 @@
                         FontSize="Small"
                         LineBreakMode="WordWrap" />
                             </StackLayout>
-                            
+
+                            <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
+
                         </StackLayout>
-                        <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
+
                     </StackLayout>
                 </DataTemplate>
             </controls:Calendar.EventTemplate>
@@ -102,5 +104,7 @@
         DayViewCornerRadius="3"
         DaysTitleHeight="40"-->
 
-</ContentPage.Content>
+
+    </ContentPage.Content>
+
 </ContentPage>
