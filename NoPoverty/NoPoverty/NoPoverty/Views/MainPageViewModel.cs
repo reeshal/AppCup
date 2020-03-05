@@ -49,8 +49,7 @@ namespace NoPoverty.Views
             return Enumerable.Range(1, 1).Select(x => new EventModel
             {
                 DateTime = $"{datetime}",
-
-                Name = $"{name}",
+                DonorUserName = $"{name}",
                 Description = $"{desc}"
             });
         }
@@ -82,8 +81,7 @@ namespace NoPoverty.Views
 
                         // get observable collection later
                         var currentEvents = Events[dt] as ObservableCollection<EventModel>;
-                        currentEvents.Add(new EventModel { DateTime = $"{dt.ToShortTimeString()}", Name = $"{name}", Description = $"{desc}" });
-
+                        currentEvents.Add(new EventModel { DateTime = $"{dt.ToShortTimeString()}", DonorUserName = $"{name}", Description = $"{desc}" });
                     });
                 }
             }, TaskScheduler.FromCurrentSynchronizationContext());
@@ -104,7 +102,7 @@ namespace NoPoverty.Views
                     {
                         // get observable collection later
                         var currentEvents = Events[dt] as ObservableCollection<EventModel>;
-                        currentEvents.Remove(currentEvents.Where(i => i.Name == name).Single());
+                        currentEvents.Remove(currentEvents.Where(i => i.DonorUserName == name).Single());
                     });
                 }
             }, TaskScheduler.FromCurrentSynchronizationContext());
