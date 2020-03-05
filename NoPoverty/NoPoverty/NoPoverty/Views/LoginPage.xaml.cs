@@ -41,7 +41,7 @@ namespace NoPoverty.Views
 
             else
             {
-                if (LoginUser == "Donor")
+                if (LoginUser.Equals("Donor"))
                 {
                     Donor user = await firebaseuser.GetDonor(Username);
                     if (user != null)
@@ -66,7 +66,7 @@ namespace NoPoverty.Views
                         await DisplayAlert("Login Fail", "User not found", "OK");
                     }
                 }
-                if (LoginUser == "Institution")
+                if (LoginUser.Equals("Institution"))
                 {
                     Institution user = await firebaseuser.GetRepresentative(Username);
                     if (user != null)
