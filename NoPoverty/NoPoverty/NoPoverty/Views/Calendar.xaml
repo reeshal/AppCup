@@ -13,7 +13,6 @@
         <local:MainPageViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-       
         <controls:Calendar
         Padding="10,0"
         VerticalOptions="FillAndExpand"
@@ -33,19 +32,28 @@
                     VerticalOptions="FillAndExpand"
                     HorizontalOptions="FillAndExpand"
                     Padding="15,0,0,0">
-                        <Label
-                        Text="{Binding Name}"
-                        FontAttributes="Bold"
-                        FontSize="Medium" />
-                        <Label
+                        
+                        <StackLayout Orientation="Horizontal" >
+                            <Label
+                            Text="{Binding DateTime}"
+                            FontAttributes="Italic"
+                            FontSize="Small" />
+                            <StackLayout Margin="15,0,0,0">
+                                <Label
+                            Text="{Binding Name}"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                                <Label
                         Text="{Binding Description}"
                         FontSize="Small"
                         LineBreakMode="WordWrap" />
+                            </StackLayout>
+                        </StackLayout>
+                        <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
                     </StackLayout>
                 </DataTemplate>
             </controls:Calendar.EventTemplate>
         </controls:Calendar>
-
         <!--Styling    
     <ContentPage.Resources>
         <ResourceDictionary>
