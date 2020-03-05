@@ -1,6 +1,6 @@
 ﻿using Firebase.Database;
 using Firebase.Database.Query;
-using NoPoverty.Models;
+using NoPoverty.Views;
 
 using System;
 using System.Collections.Generic;
