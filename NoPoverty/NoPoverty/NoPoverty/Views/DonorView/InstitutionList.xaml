@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NoPoverty.Views.DonorView.InstitutionList"
-             Title="Institution list"
+             Title="Institution list"  
              x:Name="BrowseInstitutionPage">
     
     <ContentPage.Content>
@@ -19,19 +19,24 @@
                             <Grid Padding="0,10,0,5" BackgroundColor="#fbf8f6"  >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="30" />
-                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="150" />
                                 </Grid.RowDefinitions>
-                                <Label Text="{Binding InstitutionName}" 
+                                <Image Source="meal3.jpg" Grid.Row="1" Aspect="AspectFill"  />
+                                <StackLayout Orientation="Vertical" Margin="10,0,10,0" Spacing="5" Grid.Row="1" VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding InstitutionName}" 
                                            VerticalOptions="Center" 
                                            HorizontalOptions="CenterAndExpand"
                                            TextColor="Black" 
-                                           FontSize="22"
-                                           Grid.Row="0"/>
-                                <Label Text="{Binding InstitutionDetails}"
+                                           FontSize="35"
+                                           BackgroundColor="#ede9c7"
+                                           />
+                                    <Label Text="{Binding InstitutionDetails}"
                                        VerticalOptions="Center" 
-                                       HorizontalOptions="StartAndExpand"
-                                       Grid.Row="1"/>
-
+                                       HorizontalOptions="CenterAndExpand"
+                                           FontSize="20"
+                                           BackgroundColor="#f5f3e6"
+                                       />
+                                </StackLayout>
                             </Grid>
 
                         </ViewCell>

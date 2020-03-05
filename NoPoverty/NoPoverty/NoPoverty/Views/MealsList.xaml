@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="List of Meals"
              x:Class="NoPoverty.Views.MealsList">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" Margin="10,5,10,10">
@@ -15,20 +16,21 @@
                         <ViewCell>
                             <Grid Padding="0,10,0,5" BackgroundColor="#fbf8f6"  >
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="25" />
                                     <RowDefinition Height="150" />
                                     <RowDefinition Height="40" />
                                 </Grid.RowDefinitions>
+                                <Image Source="meal.jpg" Grid.Row="0" Aspect="AspectFill"  />
                                 <StackLayout Orientation="Horizontal" Margin="10,0,10,0" Spacing="5" Grid.Row="0">
                                     <Label Text="{Binding Title}" 
                                            VerticalOptions="Center" 
                                            HorizontalOptions="CenterAndExpand"
                                            TextColor="Black" 
-                                           FontSize="22"
+                                           BackgroundColor="White"
+                                           FontSize="35"
                                            d:Text="Item Title"/>
                                 </StackLayout>
-                                <Image Source="meal.jpg" Grid.Row="1" Aspect="AspectFill"  />
-                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="2" Margin="10,0,10,0">
+                                
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="1" Margin="10,0,10,0">
                                     <Label Text="{Binding Donator}" 
                                            HorizontalOptions="Start" 
                                            VerticalOptions="Center"

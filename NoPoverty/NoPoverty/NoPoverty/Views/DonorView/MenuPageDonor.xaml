@@ -18,7 +18,8 @@
                     Padding="0"
                     CornerRadius="{OnPlatform Android=50, iOS=50}"
                     IsClippedToBounds="true">
-                    <Image Source="icon.png"/>
+                    <ImageButton Source="icon.png" Clicked="viewDonations"/>
+                    <!--<Image Source="icon.png"/>-->
                 </Frame>
                 <StackLayout Padding="20,0,0,0">
                     <Label x:Name="Username"

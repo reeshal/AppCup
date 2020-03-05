@@ -25,9 +25,9 @@ namespace NoPoverty.Views.DonorView
         private async Task FetchAllMeals()
         {
             //var allBooks = await firebaseHelper.GetMealsByDonor(Global.currentRep.Username);
-            //var allBooks = await firebaseHelper.GetAllMeal();
+            var allBooks = await firebaseHelper.GetAllMeal();
 
-            //ListOfMeals.ItemsSource = allBooks;
+            ListOfdons.ItemsSource = allBooks;
         }
         protected override async void OnAppearing()
         {
@@ -35,7 +35,7 @@ namespace NoPoverty.Views.DonorView
 
             await FetchAllMeals();
         }
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        async void MyMeals(object sender, SelectedItemChangedEventArgs args)
         {
             var meal = args.SelectedItem as Meal;
             if (meal == null)
@@ -44,7 +44,7 @@ namespace NoPoverty.Views.DonorView
             await Navigation.PushAsync(new MealDetails(meal));
 
             // Manually deselect item.
-            ListOfMeals.SelectedItem = null;
+            ListOfdons.SelectedItem = null;
         }
     }
 }

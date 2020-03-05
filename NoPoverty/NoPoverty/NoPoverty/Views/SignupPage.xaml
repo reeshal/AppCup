@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:BEHAVIOURS="clr-namespace:NoPoverty.Behaviours"
              mc:Ignorable="d"
+             Title="Sign Up"
              x:Class="NoPoverty.Views.SignupPage">
     <ScrollView>
         <StackLayout HorizontalOptions="FillAndExpand"
@@ -75,7 +76,8 @@
                 </StackLayout>
 
                 <Button Text="Sign Up" 
-                            HeightRequest="60" 
+                            HeightRequest="50" 
+                        Style="{StaticResource FollowButton}"
                             BackgroundColor="#5c91f2"
                             TextColor="White"
                             Font="18"
@@ -137,7 +139,8 @@
                 </StackLayout>
 
                 <Button Text="Sign Up" 
-                HeightRequest="60" 
+                        Style="{StaticResource FollowButton}"
+                HeightRequest="50" 
                 BackgroundColor="#5c91f2"
                 TextColor="White"
                 Font="18"

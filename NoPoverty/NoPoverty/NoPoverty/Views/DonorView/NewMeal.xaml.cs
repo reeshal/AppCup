@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Plugin.DownloadManager;
+using Firebase.Storage;
+using XamarinFirebase.Helper;
 
 namespace NoPoverty.Views.DonorView
 {
@@ -23,6 +26,9 @@ namespace NoPoverty.Views.DonorView
         MainPageViewModel calendarbind = new MainPageViewModel();
 
         Institution currentIns;
+        
+        FirebaseStorage firebaseStorage = new FirebaseStorage("xamarinfirebase-66859.appspot.com");
+        FirebaseStorageHelper firebaseStorageHelper = new FirebaseStorageHelper();
 
         public NewMeal(Institution ins)
         {
@@ -60,6 +66,16 @@ namespace NoPoverty.Views.DonorView
             
         }
 
-        
+        private async void BtnDownload_Clicked(object sender, EventArgs e)
+        {
+            string path = await firebaseStorageHelper.GetFile("readfile.pdf");
+            if (path != null)
+            {
+                lbl.Text = path;
+                var downloadManager = CrossDownloadManager.Current;
+                var file = downloadManager.CreateDownloadFile(path);
+                downloadManager.Start(file);
+            }
+        }
     }
 }

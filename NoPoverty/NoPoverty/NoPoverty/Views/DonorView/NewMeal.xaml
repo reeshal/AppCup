@@ -13,8 +13,9 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="View certificate"
                  Order="Primary"
+                     x:Name="lbl"
                  Priority="0"
-                 Clicked="ViewCert"/>
+                 Clicked="BtnDownload_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
