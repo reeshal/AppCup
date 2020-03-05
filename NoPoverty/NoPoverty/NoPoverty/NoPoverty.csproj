@@ -21,10 +21,16 @@
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xam.Plugins.Messaging" Version="5.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />  
+    <PackageReference Include="Xamarin.Plugin.Calendar" Version="1.1.925" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\Calendar.xaml">
+
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\DonorView\InstitutionList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -34,7 +40,13 @@
     <EmbeddedResource Update="Views\DonorView\MenuPageDonor.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\DonorView\MyDonation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\DonorView\NewMeal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\EditProfile.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MealDetails.xaml">
@@ -61,5 +73,9 @@
     <Compile Update="Views\MealsList.xaml.cs">
       <DependentUpon>MealsList.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 </Project>

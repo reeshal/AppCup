@@ -54,7 +54,7 @@
                 <Label Margin="20,0" Grid.Row="3" Style="{StaticResource MainBodyLabel}" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada ultricies arcu nec egestas. Nam porta fermentum aliquam. Nullam tincidunt odio purus." />
 
                 <!--  follow button  -->
-                <Button Grid.Row="4" Margin="20" Style="{StaticResource FollowButton}" Text="Edit Profile" />
+                <Button Grid.Row="4" Margin="20" Style="{StaticResource FollowButton}" Text="Edit Profile" Clicked="BtnEdit_Click" />
 
             </Grid>
         </ScrollView>

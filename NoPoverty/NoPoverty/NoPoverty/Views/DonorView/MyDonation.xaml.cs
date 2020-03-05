@@ -1,51 +1,50 @@
-﻿using NoPoverty.Helper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NoPoverty.Helper;
 using NoPoverty.Models;
-using NoPoverty.Views.DonorView;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using NoPoverty.Views.DonorView;
 
 
 namespace NoPoverty.Views.DonorView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InstitutionList : ContentPage
+    public partial class MyDonation : ContentPage
     {
-        readonly FirebaseUsers fu = new FirebaseUsers();
-        public InstitutionList()
+
+        readonly FirebaseFood firebaseHelper = new FirebaseFood();
+        public MyDonation()
         {
             InitializeComponent();
         }
-        private async Task FetchAllInstitutions()
-        {
-            var allIns = await fu.GetAllRepresentatives();
 
-            ListOfInst.ItemsSource = allIns;
+        private async Task FetchAllMeals()
+        {
+            //var allBooks = await firebaseHelper.GetMealsByDonor(Global.currentRep.Username);
+            //var allBooks = await firebaseHelper.GetAllMeal();
+
+            //ListOfMeals.ItemsSource = allBooks;
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            await FetchAllInstitutions();
+            await FetchAllMeals();
         }
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var ins = args.SelectedItem as Institution;
-            if (ins == null)
+            var meal = args.SelectedItem as Meal;
+            if (meal == null)
                 return;
 
-
-            await Navigation.PushAsync(new NewMeal(ins));
+            await Navigation.PushAsync(new MealDetails(meal));
 
             // Manually deselect item.
-            ListOfInst.SelectedItem = null;
+            ListOfMeals.SelectedItem = null;
         }
-
     }
 }

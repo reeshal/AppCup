@@ -19,5 +19,11 @@ namespace NoPoverty.Views
             UserName.Text = "h";
             Location.Text = "d";
         }
+        private async void BtnEdit_Click(object sender, EventArgs e)
+        {
+            //await Navigation.PushAsync(new RequestItem());
+            //await Navigation.PushAsync(new NavigationPage(new RequestItem()));
+            await Navigation.PushModalAsync(new NavigationPage(new EditProfile()));
+        }
     }
 }
