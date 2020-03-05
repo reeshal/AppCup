@@ -5,6 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NoPoverty.Views.DonorView.NewMeal">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="View certificate"
+                 Order="Primary"
+                 Priority="0"
+                 Clicked="ViewCert"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="10,20,10,10" >
@@ -25,11 +31,17 @@
                 <Entry Placeholder="Calorie/meal" HeightRequest="80" x:Name="FoodCalo"></Entry>
                 <Entry Placeholder="Healthiness" HeightRequest="80" x:Name="FoodHealthiness"></Entry>
                 <Entry Placeholder="Quantity" HeightRequest="80" x:Name="FoodQty"></Entry>
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="10,20,10,10" >
+                    <!--add calender here!-->
+                </StackLayout>
+
                 <Button Text="Upload Meal" 
                                 Style="{StaticResource FollowButton}"
                                 Clicked="btnaddMeal"/>
             </StackLayout>
-                
+
+            
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
