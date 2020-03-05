@@ -15,6 +15,7 @@ namespace NoPoverty.Views.DonorView
     public partial class NewMeal : ContentPage
     {
         FirebaseFood ff = new FirebaseFood();
+
         public NewMeal(Institution ins)
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace NoPoverty.Views.DonorView
 
         async void btnaddMeal(object sender, EventArgs e)
         {
-            await ff.AddMeal(FoodTitle.Text, FoodDesc.Text, Global.currentDonor.Username, FoodCalo.Text, FoodHealthiness.Text, FoodQty.Text, "");
+            await ff.AddMeal(FoodTitle.Text, FoodDesc.Text, Global.currentDonor.Username, FoodCalo.Text, FoodHealthiness.Text, FoodQty.Text,"Geto" , "");
             await DisplayAlert("Success", "Meal Uploaded Successfully", "OK");
         }
 
