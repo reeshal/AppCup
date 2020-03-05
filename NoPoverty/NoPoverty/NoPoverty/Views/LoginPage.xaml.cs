@@ -14,7 +14,9 @@ namespace NoPoverty.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        readonly FirebaseUsers firebaseservice = new FirebaseUsers();
+        readonly FirebaseUsers firebaseuser = new FirebaseUsers();
+
+        public static String LoginUser = "";
 
         public LoginPage()
         {
@@ -39,31 +41,71 @@ namespace NoPoverty.Views
 
             else
             {
-                Donor user = await firebaseservice.GetDonor(Username);
-                if (user != null)
+                if (LoginUser == "Donor")
                 {
-                    if (Username == user.Username && Password == user.Password)
+                    Donor user = await firebaseuser.GetDonor(Username);
+                    if (user != null)
                     {
-                        App.IsUserLoggedIn = true;
-                        Global.currentDonor = user;
-                        // Navigation.InsertPageBefore(new MainPage(), this);
-                        // await Navigation.PopAsync();
-                        Application.Current.MainPage = new MainPage();
-                        //redirect to another =mainpaege
+                        if (Username == user.Username && Password == user.Password)
+                        {
+                            App.IsUserLoggedIn = true;
+                            Global.currentDonor = user;
+                            // Navigation.InsertPageBefore(new MainPage(), this);
+                            // await Navigation.PopAsync();
+                            Application.Current.MainPage = new MainPage();
+                            //redirect to another =mainpaege
+                        }
+                        else
+                        {
+                            await DisplayAlert("Login Fail", "Please enter correct password", "OK");
+                            LoginPassword.Text = string.Empty;
+                        }
                     }
                     else
                     {
-                        await DisplayAlert("Login Fail", "Please enter correct password", "OK");
-                        LoginPassword.Text = string.Empty;
+                        await DisplayAlert("Login Fail", "User not found", "OK");
+                    }
+                }
+                if (LoginUser == "Institution")
+                {
+                    Institution user = await firebaseuser.GetRepresentative(Username);
+                    if (user != null)
+                    {
+                        if (Username == user.Username && Password == user.Password)
+                        {
+                            App.IsUserLoggedIn = true;
+                            Global.currentRep = user;
+                            // Navigation.InsertPageBefore(new MainPage(), this);
+                            // await Navigation.PopAsync();
+                            Application.Current.MainPage = new MainPage();
+                            //redirect to another =mainpaege
+                        }
+                        else
+                        {
+                            await DisplayAlert("Login Fail", "Please enter correct password", "OK");
+                            LoginPassword.Text = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        await DisplayAlert("Login Fail", "User not found", "OK");
                     }
                 }
                 else
                 {
-                    await DisplayAlert("Login Fail", "User not found", "OK");
+                    await DisplayAlert("Choose user", "Please enter user type", "OK");
                 }
             }
         }
 
+        private void Donor_clicked(object sender, EventArgs e)
+        {
+            LoginUser = "Donor";
+        }
 
+        private void Rep_clicked(object sender, CheckedChangedEventArgs e)
+        {
+            LoginUser = "Institution";
+        }
     }
 }

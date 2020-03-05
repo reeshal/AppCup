@@ -14,6 +14,59 @@
                HeightRequest="150"
                Margin="0,40,0,30"
                ></Image>
+
+        <Label Text="Who are you?"
+               HorizontalTextAlignment="Center"
+               FontSize="20"
+               FontAttributes="Bold"
+               TextDecorations="Underline"></Label>
+
+        <Grid HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                ColumnSpacing="0"
+                RowSpacing="0"
+                Padding="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="70" />
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout Grid.Row="1" 
+                    Grid.Column="0"
+                    Padding="7.5"
+                    VerticalOptions="FillAndExpand">
+                <Label Text="Donor"
+                           HorizontalTextAlignment="Center"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           ></Label>
+                <CheckBox CheckedChanged="Donor_clicked" />
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="1"
+                    Grid.Column="1"
+                    Padding="7.5"
+                    VerticalOptions="FillAndExpand">
+                <Label Text="Representative"
+                           HorizontalTextAlignment="Center"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           ></Label>
+                <CheckBox CheckedChanged="Rep_clicked" />
+
+            </StackLayout>
+        </Grid>
+
+
         <Entry Placeholder="Username" HeightRequest="90"  x:Name="LoginUsername"></Entry>
         <Entry Placeholder="Password" HeightRequest="90" Margin="0,0,0,15"  x:Name="LoginPassword"></Entry>
         <Button Text="Login" 
