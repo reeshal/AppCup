@@ -81,6 +81,5 @@ namespace NoPoverty.Helper
                 .OnceAsync<Institution>();
             return allRep.FirstOrDefault(a => a.Username == username);
         }
-
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NoPoverty.Models
 {
@@ -15,5 +16,10 @@ namespace NoPoverty.Models
         public String PhoneNo { get; set; }
 
         public String Password { get; set; }
+
+        public static implicit operator Donor(Task<Donor> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

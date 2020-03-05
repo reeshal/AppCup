@@ -15,10 +15,13 @@ namespace NoPoverty.Views
     
     public partial class RequestItem : ContentPage
     {
-        public RequestItem()
+        Donor current;
+        public RequestItem(Donor d)
         {
             InitializeComponent();
-            //PhoneNumber.Text = Global.logger.PhoneNo;  //just verifying
+            current = d;
+            PhoneNumber.Text = current.PhoneNo;
+            Email.Text = current.Email;
         }
         
         private void BtnCall_Click(object sender, EventArgs e)
