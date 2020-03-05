@@ -9,13 +9,16 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
+using NoPoverty.Helper;
+using NoPoverty.Models;
 
 namespace NoPoverty.Views
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
         public ICommand DayTappedCommand => new Command<DateTime>(DayTapped);
-
+        FirebaseCalendar fc = new FirebaseCalendar();
+        EventModel current = new EventModel();
         public MainPageViewModel()
         {
             Culture = CultureInfo.CreateSpecificCulture("en-US");
@@ -26,22 +29,17 @@ namespace NoPoverty.Views
 
 
             //Add Event
-            AddEvent2("03/08/2020 08:00:34", "Wa xD", "Ene ler pu leV sa?");
-            AddEvent2("03/08/2020 18:00:34", "Waaaooooa xD", "Ene ler pu drmi sa?");
-            AddEvent2("03/08/2020 06:00:34", "lel", "ok");
+            AddEvent2("05/03/2020 08:00:34", "Reeshal", "Meet infront of Cafetaria");
+            AddEvent2("05/03/2020 18:00:34", "Waaaooooa xD", "Ene ler pu drmi sa?");
+            AddEvent2("06/03/2020 06:00:34", "lel", "ok");
             AddEvent2("03/18/2020 16:00:34", "lol", "owkay");
-            DeleteEvent("03/08/2020 18:00:34", "Waaaooooa xD");
+            DeleteEvent("05/03/2020 18:00:34", "Waaaooooa xD");
 
 
 
         }
-
-
-
-
-
-
-
+        
+       
 
 
         protected IEnumerable<EventModel> AddEvents(string datetime, string name, string desc)

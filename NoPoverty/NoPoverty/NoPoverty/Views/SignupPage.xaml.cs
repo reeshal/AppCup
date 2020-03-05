@@ -11,6 +11,10 @@ using Xamarin.Forms.Xaml;
 using System.Text.RegularExpressions;
 using NoPoverty.Helper;
 using NoPoverty.Views.DonorView;
+using XamarinFirebase.Helper;
+using Firebase.Storage;
+using Plugin.FilePicker;
+using Plugin.FilePicker.Abstractions;
 
 namespace NoPoverty.Views
 {
@@ -18,9 +22,29 @@ namespace NoPoverty.Views
     public partial class SignupPage : ContentPage
     {
         readonly FirebaseUsers fb = new FirebaseUsers();
+
+        FirebaseStorage firebaseStorage = new FirebaseStorage("xamarinfirebase-66859.appspot.com");
+        FirebaseStorageHelper firebaseStorageHelper = new FirebaseStorageHelper();
         public SignupPage()
         {
             InitializeComponent();
+        }
+        private async void Button_Upload(object sender, EventArgs e)
+        {
+            try
+            {
+
+                FileData file = await CrossFilePicker.Current.PickFile();
+
+                await firebaseStorageHelper.UploadFile(file.GetStream(), "file");
+
+
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("Exception choosing file: " + ex.ToString());
+            }
+
         }
         private async void TapToLogin(object sender, EventArgs e)
         {

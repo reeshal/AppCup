@@ -48,7 +48,7 @@
                         LineBreakMode="WordWrap" />
                             </StackLayout>
 
-                            <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
+                            
 
                         </StackLayout>
 

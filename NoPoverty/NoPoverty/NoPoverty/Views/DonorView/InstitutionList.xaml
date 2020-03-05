@@ -20,7 +20,6 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="30" />
                                     <RowDefinition Height="50" />
-                                    <RowDefinition Height="40" />
                                 </Grid.RowDefinitions>
                                 <Label Text="{Binding InstitutionName}" 
                                            VerticalOptions="Center" 

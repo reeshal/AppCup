@@ -125,7 +125,7 @@
                         
                         <Button Text="Upload"
                                 Style="{StaticResource FollowButton}"
-                                x:Name="AddStat"
+                                Clicked="Button_Upload"
                                 /> 
                         <Entry Placeholder="Detailed Dietary Requirements" HeightRequest="80" x:Name="DietaryReq"></Entry>
                         <Entry Placeholder="Institution Details" HeightRequest="80" x:Name="insDetails"></Entry>

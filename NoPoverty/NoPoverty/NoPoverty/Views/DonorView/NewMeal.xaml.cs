@@ -18,6 +18,7 @@ namespace NoPoverty.Views.DonorView
     public partial class NewMeal : ContentPage
     {
         FirebaseFood ff = new FirebaseFood();
+        FirebaseCalendar fc = new FirebaseCalendar();
 
         MainPageViewModel calendarbind = new MainPageViewModel();
 
@@ -32,6 +33,7 @@ namespace NoPoverty.Views.DonorView
         async void btnaddMeal(object sender, EventArgs e)
         {
              calendarbind.AddEvent2(DateTimeInput.Text, Global.currentDonor.Username, Description.Text);
+            await fc.AddCalendar(DateTimeInput.Text, Global.currentDonor.Username, Description.Text,currentIns.InstitutionName);
 
             await ff.AddMeal(FoodTitle.Text, FoodDesc.Text, Global.currentDonor.Username, FoodCalo.Text, FoodHealthiness.Text, FoodQty.Text,currentIns.InstitutionName , "");
             
