@@ -13,8 +13,9 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="View certificate"
                  Order="Primary"
+                     x:Name="lbl"
                  Priority="0"
-                 Clicked="ViewCert"/>
+                 Clicked="BtnDownload_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
@@ -68,7 +69,7 @@
                             FontSize="Small" />
                             <StackLayout Margin="15,0,0,0">
                                 <Label
-                            Text="{Binding Name}"
+                            Text="{Binding DonorUserName}"
                             FontAttributes="Bold"
                             FontSize="Medium" />
                                 <Label
@@ -76,7 +77,6 @@
                         FontSize="Small"
                         LineBreakMode="WordWrap" />
                             </StackLayout>
-                            <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
 
                         </StackLayout>
                     </StackLayout>
@@ -130,8 +130,8 @@
         DayViewCornerRadius="3"
         DaysTitleHeight="40"-->
 
-                    <Label Text="Add the date/time to book a slot (in the format shown)" HeightRequest="40" HorizontalOptions="FillAndExpand" FontSize="16"/>
-                    <Entry Placeholder="e.g: 03/08/2020 08:00:34" HeightRequest="45" x:Name="DateTimeInput"></Entry>
+                    <Label Text="Add the date/time to book a slot (e.g 03/08/2020 08:00:34)" HeightRequest="40" HorizontalOptions="FillAndExpand" FontSize="16"/>
+                    <Entry Placeholder="Please use above format" HeightRequest="45" x:Name="DateTimeInput"></Entry>
                     <Label Text="Any relevant information (Details)" HeightRequest="40" HorizontalOptions="FillAndExpand" FontSize="16"/>
                     <Entry Placeholder="e.g: Meet me near the Supermarket" HeightRequest="45" x:Name="Description"></Entry>
 

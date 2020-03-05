@@ -71,7 +71,8 @@
         <Entry Placeholder="Username" HeightRequest="90"  x:Name="LoginUsername"></Entry>
         <Entry Placeholder="Password" HeightRequest="90" Margin="0,0,0,15"  x:Name="LoginPassword"></Entry>
         <Button Text="Login" 
-                HeightRequest="60" 
+                Style="{StaticResource FollowButton}"
+                HeightRequest="50" 
                 BackgroundColor="#5c91f2"
                 TextColor="White"
                 Font="18"

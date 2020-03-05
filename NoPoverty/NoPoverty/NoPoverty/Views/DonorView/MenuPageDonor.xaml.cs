@@ -24,7 +24,7 @@ namespace NoPoverty.Views.DonorView
             menuItemsDonor = new List<HomeMenuItemDonor>
             {
                 new HomeMenuItemDonor {Id = MenuItemTypeDonor.Home, Title="List of institutions" },
-                new HomeMenuItemDonor {Id = MenuItemTypeDonor.MyDonation, Title="My Donations" },
+                new HomeMenuItemDonor {Id = MenuItemTypeDonor.MyDonation, Title="Click on picture to see my Donations" },
                 new HomeMenuItemDonor {Id = MenuItemTypeDonor.UpdateProfile, Title="Update Profile" },
             };
 
@@ -47,6 +47,11 @@ namespace NoPoverty.Views.DonorView
             Global.currentDonor = null;
             Application.Current.MainPage = new NavigationPage(new LoginPage());
 
+        }
+
+        async void viewDonations(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new MyDonation()));
         }
     }
 }
