@@ -31,7 +31,7 @@ namespace NoPoverty.Views
                 switch (id)
                 {
                     case (int)MenuItemType.Calendar:
-                        //MenuPages.Add(id, new NavigationPage(new RepCalendar()));
+                        MenuPages.Add(id, new NavigationPage(new Calendar()));
                         break;
                     case (int)MenuItemType.UpdateProfile:
                         //MenuPages.Add(id, new NavigationPage(new UpdateRepProfile()));

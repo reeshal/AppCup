@@ -43,11 +43,13 @@ namespace NoPoverty.Views
 
 
 
+
         protected IEnumerable<EventModel> AddEvents(string datetime, string name, string desc)
         {
             return Enumerable.Range(1, 1).Select(x => new EventModel
             {
                 DateTime = $"{datetime}",
+
                 Name = $"{name}",
                 Description = $"{desc}"
             });
@@ -56,8 +58,10 @@ namespace NoPoverty.Views
         {
             DateTime dt = new DateTime();
             dt = DateTime.Parse(datetime);
+
             Events.Add(dt, new List<EventModel>(AddEvents(dt.ToShortTimeString(), name, desc)));
         }
+
         public void AddEvent2(string datetime, string name, string desc)
         {
             Task.Delay(5000).ContinueWith(_ =>
@@ -67,21 +71,27 @@ namespace NoPoverty.Views
                 // indexer - update later
                 if (!Events.ContainsKey(dt))
                 {
+
                     Events[dt] = new ObservableCollection<EventModel>(AddEvents(dt.ToShortTimeString(), name, desc));
+
                 }
                 else
                 {
                     Task.Delay(3000).ContinueWith(t =>
                     {
+
                         // get observable collection later
                         var currentEvents = Events[dt] as ObservableCollection<EventModel>;
                         currentEvents.Add(new EventModel { DateTime = $"{dt.ToShortTimeString()}", Name = $"{name}", Description = $"{desc}" });
+
                     });
                 }
             }, TaskScheduler.FromCurrentSynchronizationContext());
 
         }
+
         public void DeleteEvent(string datetime, string name)
+
         {
             Task.Delay(5000).ContinueWith(_ =>
             {
