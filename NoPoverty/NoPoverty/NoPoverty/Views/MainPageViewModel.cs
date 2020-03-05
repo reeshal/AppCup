@@ -52,12 +52,7 @@ namespace NoPoverty.Views
                 Description = $"{desc}"
             });
         }
-        public void AddEvent(string datetime, string name, string desc)
-        {
-            DateTime dt = new DateTime();
-            dt = DateTime.Parse(datetime);
-                 Events.Add(dt, new List<EventModel>(AddEvents(dt.ToShortTimeString(),name, desc)));
-           }
+       
         public void AddEvent2(string datetime, string name, string desc)
         {
             Task.Delay(5000).ContinueWith(_ =>
