@@ -6,8 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using NoPoverty.Helper;
 using NoPoverty.Models;
+using NoPoverty.Views.DonorView;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using NoPoverty.Views.DonorView;
+
 
 namespace NoPoverty.Views.DonorView
 {
@@ -33,16 +36,16 @@ namespace NoPoverty.Views.DonorView
         }
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            
-            var inst= args.SelectedItem as Institution;
-            if (inst == null)
+            var ins = args.SelectedItem as Institution;
+            if (ins == null)
                 return;
-                /*
-            await Navigation.PushAsync(new ItemDetails(Book));
+
+
+            await Navigation.PushAsync(new NewMeal(ins));
 
             // Manually deselect item.
             ListOfInst.SelectedItem = null;
-            */
         }
+
     }
 }
