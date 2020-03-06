@@ -30,10 +30,11 @@ namespace NoPoverty.Views
 
             //Add Event
             AddEvent2("05/03/2020 08:00:34", "Reeshal", "Meet infront of Cafetaria");
-            AddEvent2("05/03/2020 18:00:34", "Waaaooooa xD", "Ene ler pu drmi sa?");
+            AddEvent2("05/03/2020 18:00:34", "Hevin ", "Meeting pt: behind supermarket");
+            AddEvent2("07/03/2020 10:00:34", "Yadav", "Bring a large bag");
             AddEvent2("06/03/2020 06:00:34", "lel", "ok");
             AddEvent2("03/18/2020 16:00:34", "lol", "owkay");
-            DeleteEvent("05/03/2020 18:00:34", "Waaaooooa xD");
+            //DeleteEvent("05/03/2020 18:00:34", "Waaaooooa xD");
 
 
 

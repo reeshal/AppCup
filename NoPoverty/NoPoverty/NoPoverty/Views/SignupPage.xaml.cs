@@ -283,7 +283,7 @@ namespace NoPoverty.Views
             {
                 ErrorMessage = "Password should contain At least one lower case letter";
                 return false;
-            }/*
+            }
             else if (!hasUpperChar.IsMatch(input))
             {
                 ErrorMessage = "Password should contain At least one upper case letter";
@@ -304,7 +304,7 @@ namespace NoPoverty.Views
             {
                 ErrorMessage = "Password should contain At least one special case characters";
                 return false;
-            }*/
+            }
             else
             {
                 return true;
