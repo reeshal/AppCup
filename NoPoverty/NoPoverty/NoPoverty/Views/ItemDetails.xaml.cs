@@ -17,9 +17,22 @@ namespace NoPoverty.Views
     {
         Books currentbook;
         Stationery currentstat;
+        public ItemDetails()
+        {
+            
+        }
+        
         public ItemDetails(Books b)
         {
             InitializeComponent();
+            Pin pin = new Pin
+            {
+                Label = "lel Cruz",
+                Address = "The city with a boardwalk",
+                Type = PinType.Place,
+                Position = new Position(-20.4124809, 57.6878460)
+            };
+            map.Pins.Add(pin);
             currentbook = b;
             donator.Text = b.Donator;
             title.Text = b.Title;

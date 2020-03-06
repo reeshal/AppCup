@@ -48,8 +48,9 @@
                         FontSize="Small"
                         LineBreakMode="WordWrap" />
                             </StackLayout>
+                            <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
+
                         </StackLayout>
-                        <BoxView Color="DarkGray" WidthRequest ="100" HeightRequest="1"/>
                     </StackLayout>
                 </DataTemplate>
             </controls:Calendar.EventTemplate>

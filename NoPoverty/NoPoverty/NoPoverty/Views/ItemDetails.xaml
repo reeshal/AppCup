@@ -51,47 +51,7 @@
                 <StackLayout Orientation="Vertical" Grid.Row="5" Margin="0,5,0,10">
 
                     <maps:Map x:Name="map" IsShowingUser="True">
-                    <x:Arguments>
-                        <maps:MapSpan>
-                            <x:Arguments>
-                                <maps:Position>
-                                    <x:Arguments>
-                                            <x:Double>-20.4124809</x:Double>
-                                            <x:Double>57.6878463</x:Double>
-                                    </x:Arguments>
-                                </maps:Position>
-                                <x:Double>0.01</x:Double>
-                                <x:Double>0.01</x:Double>
-                            </x:Arguments>
-                        </maps:MapSpan>
-                    </x:Arguments>
-                    <maps:Map.Pins>
-                        <maps:Pin Label="Reeshal"
-                          Address="The city with a boardwalk"
-                          Type="Place">
-                            <maps:Pin.Position>
-                                <maps:Position>
-                                    <x:Arguments>
-                                            <x:Double>-20.4124809</x:Double>
-                                            <x:Double>57.6878400</x:Double>
-                                    </x:Arguments>
-                                </maps:Position>
-                            </maps:Pin.Position>
-                        </maps:Pin>
-                            <maps:Pin Label="Hevin"
-                          Address="xD"
-                          Type="Place">
-                                <maps:Pin.Position>
-                                    <maps:Position>
-                                        <x:Arguments>
-                                            <x:Double>-20.4124809</x:Double>
-                                            <x:Double>57.6878470</x:Double>
-                                        </x:Arguments>
-                                    </maps:Position>
-                                </maps:Pin.Position>
-                            </maps:Pin>
-                        </maps:Map.Pins>
-                </maps:Map>
+                    </maps:Map>
                   </StackLayout>
 
                     <Button Text="Request Item" Grid.Row="6" Margin="0,5,0,10" Style="{StaticResource FollowButton}" Clicked="BtnReq_Click"/>
