@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:BEHAVIOURS="clr-namespace:NoPoverty.Behaviours"
+             mc:Ignorable="d"
+             Title="Update Profile"
+             x:Class="NoPoverty.Views.UpdateRepProfile">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Margin="10,10,10,10">
+            <Label Text="Representative Information"/>
+            <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="550">
+
+                <StackLayout Spacing="10" Padding="5">
+                    <Entry Placeholder="Address" HeightRequest="80" x:Name="RepresentativeAddressNew"></Entry>
+                    <Entry Placeholder="Email" HeightRequest="80" x:Name="RepresentativeEmailNew" Keyboard="Email"></Entry>
+                    <Entry Placeholder="Contact Number" HeightRequest="80" x:Name="RepresentativePhoneNumNew" Keyboard="Numeric">
+                        <Entry.Behaviors>
+                            <BEHAVIOURS:PhoneMask Mask="(XXX) XXXX-XXXX" />
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Entry Placeholder="Username" HeightRequest="80" x:Name="RepresentativeUsername"></Entry>
+                    <Entry Placeholder="Password(Min 1 Uppercase,lowercase,digit)" HeightRequest="80" x:Name="RepresentativePassword"></Entry>
+                    <Entry Placeholder="Confirm Password" HeightRequest="80" Margin="0,0,0,15" x:Name="RepresentativeConfirmPassword"></Entry>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="Institution Information"/>
+            <Frame OutlineColor="AliceBlue" Grid.Row="0" Grid.Column="0" Margin="5,0,2,0" Padding="0" HeightRequest="280">
+
+                <StackLayout Spacing="10" Padding="5">
+                    <Label Text="Upload a new certification picture" HorizontalTextAlignment="Start"></Label>
+
+                    <Button Text="Upload"
+                                Style="{StaticResource FollowButton}"
+                                WidthRequest="100"
+                                HorizontalOptions="End"
+                                Clicked="Button_Upload_Cer"
+                                />
+                    <Entry Placeholder="Update Dietary Requirements" HeightRequest="80" x:Name="DietaryReqNew"></Entry>
+                    <Entry Placeholder="Update Institution Details" HeightRequest="80" x:Name="insDetailsNew"></Entry>
+
+                </StackLayout>
+            </Frame>
+            <Button Text="Update Profile" 
+                        Style="{StaticResource FollowButton}"
+                HeightRequest="50" 
+                BackgroundColor="#5c91f2"
+                TextColor="White"
+                Font="18"
+                Clicked="btnUpdate"></Button>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

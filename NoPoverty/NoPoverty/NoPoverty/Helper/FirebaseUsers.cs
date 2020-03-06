@@ -81,5 +81,18 @@ namespace NoPoverty.Helper
                 .OnceAsync<Institution>();
             return allRep.FirstOrDefault(a => a.Username == username);
         }
+        
+        public async Task UpdateRep(Guid representativeId, string username, string firstname, string lastname, string address, string email, string phoneno, string password, string institutionName, string dietaryReq, string details)
+        {
+            var toUpdatePerson = (await firebase
+                .Child(Child2)
+                .OnceAsync<Institution>()).FirstOrDefault(a => a.Object.RepresentativeId == representativeId);
+
+            await firebase
+                .Child(Child2)
+                .Child(toUpdatePerson.Key)
+                .PutAsync(new Institution() {RepresentativeId = representativeId, Username = username, Firstname = firstname, Lastname = lastname, Address = address, Email = email, PhoneNo = phoneno, Password = password, InstitutionName = institutionName, DietaryRequirements = dietaryReq, InstitutionDetails = details });
+        }
+
     }
 }
