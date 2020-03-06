@@ -36,7 +36,7 @@ namespace NoPoverty.Views
 
                 FileData file = await CrossFilePicker.Current.PickFile();
 
-                await firebaseStorageHelper.UploadFile(file.GetStream(), "file");
+                await firebaseStorageHelper.UploadFile(file.GetStream(), file.FileName);
 
 
             }

@@ -34,7 +34,7 @@ namespace NoPoverty.Views
                         MenuPages.Add(id, new NavigationPage(new Calendar()));
                         break;
                     case (int)MenuItemType.UpdateProfile:
-                        //MenuPages.Add(id, new NavigationPage(new UpdateRepProfile()));
+                        MenuPages.Add(id, new NavigationPage(new UpdateRepProfile()));
                         break;
 
                 }
