@@ -36,6 +36,12 @@
                                            FontSize="20"
                                            BackgroundColor="#f5f3e6"
                                        />
+                                    <Label Text="{Binding DietaryRequirements}"
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="CenterAndExpand"
+                                           FontSize="16"
+                                           BackgroundColor="#f5f3e6"
+                                       />
                                 </StackLayout>
                             </Grid>
 

@@ -68,7 +68,7 @@
                     </Entry.Behaviors>
                 </Entry>
                 <Entry Placeholder="Username" HeightRequest="80" x:Name="UserUsername"></Entry>
-                <Entry Placeholder="Password" HeightRequest="80" x:Name="UserPassword"></Entry>
+                <Entry Placeholder="Password(Min 1 Uppercase,lowercase,digit)" HeightRequest="80" x:Name="UserPassword"></Entry>
                 <Entry Placeholder="Confirm Password" HeightRequest="80" Margin="0,0,0,15" x:Name="ConfirmPassword"></Entry>
 
                 <StackLayout x:Name="StackIndicator" Margin="0,5" IsVisible="False" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
@@ -112,7 +112,7 @@
                             </Entry.Behaviors>
                         </Entry>
                         <Entry Placeholder="Username" HeightRequest="80" x:Name="RepresentativeUsername"></Entry>
-                        <Entry Placeholder="Password" HeightRequest="80" x:Name="RepresentativePassword"></Entry>
+                        <Entry Placeholder="Password(Min 1 Uppercase,lowercase,digit)" HeightRequest="80" x:Name="RepresentativePassword"></Entry>
                         <Entry Placeholder="Confirm Password" HeightRequest="80" Margin="0,0,0,15" x:Name="RepresentativeConfirmPassword"></Entry>
                     </StackLayout>
                 </Frame>
@@ -127,6 +127,8 @@
                         
                         <Button Text="Upload"
                                 Style="{StaticResource FollowButton}"
+                                WidthRequest="100"
+                                HorizontalOptions="End"
                                 Clicked="Button_Upload"
                                 /> 
                         <Entry Placeholder="Detailed Dietary Requirements" HeightRequest="80" x:Name="DietaryReq"></Entry>

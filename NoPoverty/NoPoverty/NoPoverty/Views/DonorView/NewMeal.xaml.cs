@@ -38,7 +38,7 @@ namespace NoPoverty.Views.DonorView
 
         async void btnaddMeal(object sender, EventArgs e)
         {
-             calendarbind.AddEvent2(DateTimeInput.Text, Global.currentDonor.Username, Description.Text);
+            calendarbind.AddEvent2(DateTimeInput.Text, Global.currentDonor.Username, Description.Text);
             await fc.AddCalendar(DateTimeInput.Text, Global.currentDonor.Username, Description.Text,currentIns.InstitutionName);
 
             await ff.AddMeal(FoodTitle.Text, FoodDesc.Text, Global.currentDonor.Username, FoodCalo.Text, FoodHealthiness.Text, FoodQty.Text,currentIns.InstitutionName , "");
@@ -59,12 +59,6 @@ namespace NoPoverty.Views.DonorView
             //Description.Text = string.Empty;
         }
 
-
-
-        private void ViewCert(object sender, EventArgs e)
-        {
-            
-        }
 
         private async void BtnDownload_Clicked(object sender, EventArgs e)
         {
